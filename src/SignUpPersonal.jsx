@@ -31,7 +31,10 @@ function SignUpPersonal() {
           id='sign-up-password'
           className='sign-up-personal__input-password'
         />
-        <div className='sign-up-personal__agreement-and-notice'></div>
+        <div className='sign-up-personal__agreement-and-notice'>
+
+          tova e samo test
+        </div>
         <button type='submit'>Create account</button>
       </form>
       <div className='sign-up-personal__vertical-delimiter'></div>
