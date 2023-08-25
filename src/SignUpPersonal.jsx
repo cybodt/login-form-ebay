@@ -34,6 +34,7 @@ function SignUpPersonal() {
         <div className='sign-up-personal__agreement-and-notice'>
 
           tova e samo test
+          tova e test 2
         </div>
         <button type='submit'>Create account</button>
       </form>
