@@ -2,3 +2,36 @@
   width: 774px;
   height: 400px;
 }
+
+.sign-up-personal__form {
+  width: 300px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: lightgreen;
+}
+
+.sign-up-personal__first-and-last-name {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.sign-up-personal__first-and-last-name label {
+  position: absolute;
+  top: 11px;
+  padding-left: 15px;
+  transition: .5s;
+  pointer-events: none;
+}
+
+.sign-up-personal__first-name,
+.sign-up-personal__first-name>input,
+.sign-up-personal__last-name,
+.sign-up-personal__last-name>input {
+  width: 138px;
+  height: 40px;
+  box-sizing: border-box;
+  background-color: orangered;
+}
