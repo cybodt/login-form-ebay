@@ -32,7 +32,7 @@ function SignUpPersonal() {
             className='sign-up-personal__input-email'
           />
         </div>
-        <div className='sign-up-personal__input-password'>
+        <div className='sign-up-personal__password'>
           <label htmlFor='sign-up-password'>Password</label>
           <input
             type='password'
@@ -49,7 +49,7 @@ function SignUpPersonal() {
       </form>
       <div className='sign-up-personal__vertical-delimiter'></div>
       <div className='sign-up-personal__social-login'></div>
-    </div >
+    </div>
   );
 }
 
