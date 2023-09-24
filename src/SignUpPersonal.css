@@ -24,6 +24,7 @@
   padding-left: 15px;
   transition: .5s;
   pointer-events: none;
+  font-size: .875rem;
 }
 
 .sign-up-personal__first-name,
@@ -58,6 +59,7 @@
   position: absolute;
   top: 10px;
   left: 15px;
+  font-size: .875rem;
 }
 
 .sign-up-personal__input-first-name,
@@ -70,4 +72,23 @@
   background-color: #f7f7f7;
   color: black;
   font-size: 1rem;
+}
+
+.sign-up-personal__agreement-and-notice {
+  padding: 8px 0;
+  font-size: 12px;
+  font-family: 'Market-Sans', 'Market-Sans2', Arial, sans-serif;
+  line-height: 1.5;
+  color: #767676;
+}
+
+.sign-up-personal__agreement-and-notice>p {
+  margin: 0;
+}
+
+.sign-up-personal__agreement-and-notice b {
+  /* color: #767676; */
+  /* font-weight: 600; */
+  /* color: red; */
+  color: #767676
 }
