@@ -45,7 +45,11 @@ function SignUpPersonal() {
             By <b>Creating an account</b>, you agree to our <Link to='/useragreement'>User Agreement</Link> and acknowledge reading our <Link to='/userprivacynotice'>User Privacy Notice </Link>.
           </p>
         </div>
-        <button type='submit'>Create account</button>
+        <button
+          type='submit'
+          className='sign-up-personal__create-account-button'
+        >Create account
+        </button>
       </form>
       <div className='sign-up-personal__vertical-delimiter'></div>
       <div className='sign-up-personal__social-login'></div>
