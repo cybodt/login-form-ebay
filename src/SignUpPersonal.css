@@ -102,3 +102,40 @@
   color: #fff;
   background-color: #c7c7c7;
 }
+
+.sign-up-personal__vertical-delimiter-container {
+  width: 174px;
+  height: 400px;
+  position: relative;
+}
+
+.sign-up-personal__vertical-line {
+  width: 1px;
+  height: 100%;
+  margin: auto;
+  background-color: #ccc;
+}
+
+.sign-up-personal__horizontal-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: .75rem;
+  line-height: 16px;
+  font-family: 'Market-Sans', 'Market-Sans2', Arial, Helvetica, sans-serif;
+  background-color: #fff;
+}
+
+.sign-up-personal__social-login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.sign-up-personal__social-buttons {
+  width: 100%;
+  height: 192px;
+  background-color: coral;
+}

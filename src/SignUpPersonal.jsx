@@ -51,8 +51,47 @@ function SignUpPersonal() {
         >Create account
         </button>
       </form>
-      <div className='sign-up-personal__vertical-delimiter'></div>
-      <div className='sign-up-personal__social-login'></div>
+      <div className='sign-up-personal__vertical-delimiter-container'>
+        <div className='sign-up-personal__vertical-line' />
+        <div className='sign-up-personal__horizontal-text'>or</div>
+      </div>
+      <div className='sign-up-personal__social-login'>
+        <div className='sign-up-personal__social-buttons'>
+          <button
+            type='button'
+            className='sign-up-personal__continue-btns
+                sign-up-personal__google-btn'
+          >
+            <img
+              src='/images/logos-on-buttons/google-logo.png'
+              alt='Google logo'
+            />
+            <span>Continue with Google</span>
+          </button>
+          <button
+            type='button'
+            className='sign-up-personal__continue-btns
+            sign-up-personal__fb-btn'
+          >
+            <img
+              src='/images/logos-on-buttons/facebook-logo.png'
+              alt='Facebook logo'
+            />
+            <span>Continue with Facebook</span>
+          </button>
+          <button
+            type='button'
+            className='sign-up-personal__continue-btns
+                sign-up-personal__apple-btn'
+          >
+            <img
+              src='/images/logos-on-buttons/apple-logo.png'
+              alt='Apple logo'
+            />
+            <span>Continue with Apple</span>
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
