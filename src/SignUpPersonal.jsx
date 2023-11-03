@@ -1,8 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SignUpPersonal.css';
 import { Link } from 'react-router-dom';
 
 function SignUpPersonal() {
+  const [outlineFName, setOutlineFName] = useState('none');
+  const [valueFName, setValueFName] = useState('');
+  const [warningBorderFName, setWarningBorderFName] = useState('1px solid gray');
+  const [displayErrorFName, setDisplayErrorFName] = useState('none');
+
+  const handleChangeFirstName = (e) => {
+    setValueFName(e.target.value);
+  };
+
+  const handleFocusFirstName = () => {
+    setWarningBorderFName('1px solid gray');
+    setOutlineFName('2px solid #0060df');
+  };
+
+  const handleFocusOutFirstName = (e) => {
+    setOutlineFName('none');
+    if (e.target.value === '') {
+      setWarningBorderFName('1px solid #e0103a');
+      setDisplayErrorFName('inline-block');
+    }
+    else {
+      setDisplayErrorFName('none');
+    }
+  };
+
   return (
     <div className='sign-up-personal__container'>
       <form className='sign-up-personal__form'>
@@ -13,6 +38,14 @@ function SignUpPersonal() {
               type='text'
               id='first-name'
               className='sign-up-personal__input-first-name'
+              value={valueFName}
+              onChange={handleChangeFirstName}
+              onFocus={handleFocusFirstName}
+              onBlur={handleFocusOutFirstName}
+              style={{
+                outline: outlineFName,
+                border: warningBorderFName
+              }}
             />
           </div>
           <div className='sign-up-personal__last-name'>
@@ -22,6 +55,19 @@ function SignUpPersonal() {
               id='last-name'
               className='sign-up-personal__input-last-name'
             />
+          </div>
+        </div>
+        <div className='sign-up-personal__first-and-last-name-errors'>
+          <div
+            className='sign-up-personal__first-name-error'
+            style={{
+              display: displayErrorFName
+            }}
+          >
+            Please enter your first name
+          </div>
+          <div className='sign-up-personal__last-name-error'>
+            Please enter your last name
           </div>
         </div>
         <div className='sign-up-personal__email'>
