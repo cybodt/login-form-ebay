@@ -4,9 +4,14 @@ import { Link } from 'react-router-dom';
 
 function SignUpPersonal() {
   const [outlineFName, setOutlineFName] = useState('none');
+  const [outlineLName, setOutlineLName] = useState('none');
   const [valueFName, setValueFName] = useState('');
+  const [valueLName, setValueLName] = useState('');
   const [warningBorderFName, setWarningBorderFName] = useState('1px solid gray');
+  const [warningBorderLName, setWarningBorderLName] = useState('1px solid gray');
+  const [namesErrorsContainer, setnamesErrorsContainer] = useState('none');
   const [displayErrorFName, setDisplayErrorFName] = useState('none');
+  const [displayErrorLName, setDisplayErrorLName] = useState('none');
 
   const handleChangeFirstName = (e) => {
     setValueFName(e.target.value);
@@ -21,10 +26,32 @@ function SignUpPersonal() {
     setOutlineFName('none');
     if (e.target.value === '') {
       setWarningBorderFName('1px solid #e0103a');
-      setDisplayErrorFName('inline-block');
+      setnamesErrorsContainer('flex');
+      setDisplayErrorFName('block');
     }
     else {
       setDisplayErrorFName('none');
+    }
+  };
+
+  const handleChangeLastName = (e) => {
+    setValueLName(e.target.value);
+  };
+
+  const handleFocusLastName = () => {
+    setWarningBorderLName('1px solid gray');
+    setOutlineLName('2px solid #0060df');
+  };
+
+  const handleFocusOutLastName = (e) => {
+    setOutlineLName('none');
+    if (e.target.value === '') {
+      setWarningBorderLName('1px solid #e0103a');
+      setnamesErrorsContainer('flex');
+      setDisplayErrorLName('block');
+    }
+    else {
+      setDisplayErrorLName('none');
     }
   };
 
@@ -54,10 +81,23 @@ function SignUpPersonal() {
               type='text'
               id='last-name'
               className='sign-up-personal__input-last-name'
+              value={valueLName}
+              onChange={handleChangeLastName}
+              onFocus={handleFocusLastName}
+              onBlur={handleFocusOutLastName}
+              style={{
+                outline: outlineLName,
+                border: warningBorderLName
+              }}
             />
           </div>
         </div>
-        <div className='sign-up-personal__first-and-last-name-errors'>
+        <div
+          className='sign-up-personal__first-and-last-name-errors'
+          style={{
+            display: namesErrorsContainer
+          }}
+        >
           <div
             className='sign-up-personal__first-name-error'
             style={{
@@ -66,7 +106,12 @@ function SignUpPersonal() {
           >
             Please enter your first name
           </div>
-          <div className='sign-up-personal__last-name-error'>
+          <div
+            className='sign-up-personal__last-name-error'
+            style={{
+              display: displayErrorLName
+            }}
+          >
             Please enter your last name
           </div>
         </div>
