@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './SignUpPersonal.css';
 import { Link } from 'react-router-dom';
 
@@ -9,24 +9,34 @@ function SignUpPersonal() {
   const [valueLName, setValueLName] = useState('');
   const [warningBorderFName, setWarningBorderFName] = useState('1px solid gray');
   const [warningBorderLName, setWarningBorderLName] = useState('1px solid gray');
-  const [namesErrorsContainer, setnamesErrorsContainer] = useState('none');
+  const [namesErrorsContainer, setNamesErrorsContainer] = useState('none');
   const [displayErrorFName, setDisplayErrorFName] = useState('none');
   const [displayErrorLName, setDisplayErrorLName] = useState('none');
 
+  useEffect(() => {
+    if (displayErrorFName === 'none' && displayErrorLName === 'none') {
+      setNamesErrorsContainer('none');
+    }
+  }, [displayErrorFName, displayErrorLName]);
+
   const handleChangeFirstName = (e) => {
     setValueFName(e.target.value);
+    setDisplayErrorFName('none');
   };
 
-  const handleFocusFirstName = () => {
+  const handleFocusFirstName = (e) => {
     setWarningBorderFName('1px solid gray');
     setOutlineFName('2px solid #0060df');
+    if (e.target.value !== '') {
+      setDisplayErrorFName('none');
+    }
   };
 
   const handleFocusOutFirstName = (e) => {
     setOutlineFName('none');
     if (e.target.value === '') {
       setWarningBorderFName('1px solid #e0103a');
-      setnamesErrorsContainer('flex');
+      setNamesErrorsContainer('flex');
       setDisplayErrorFName('block');
     }
     else {
@@ -36,6 +46,7 @@ function SignUpPersonal() {
 
   const handleChangeLastName = (e) => {
     setValueLName(e.target.value);
+    setDisplayErrorLName('none');
   };
 
   const handleFocusLastName = () => {
@@ -47,7 +58,7 @@ function SignUpPersonal() {
     setOutlineLName('none');
     if (e.target.value === '') {
       setWarningBorderLName('1px solid #e0103a');
-      setnamesErrorsContainer('flex');
+      setNamesErrorsContainer('flex');
       setDisplayErrorLName('block');
     }
     else {
