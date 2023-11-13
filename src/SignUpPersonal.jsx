@@ -5,13 +5,21 @@ import { Link } from 'react-router-dom';
 function SignUpPersonal() {
   const [outlineFName, setOutlineFName] = useState('none');
   const [outlineLName, setOutlineLName] = useState('none');
+  const [outlineEmail, setOutlineEmail] = useState('none');
+  const [outlinePassword, setOutlinePassword] = useState('none');
   const [valueFName, setValueFName] = useState('');
   const [valueLName, setValueLName] = useState('');
+  const [valueEmail, setValueEmail] = useState('');
+  const [valuePassword, setValuePassword] = useState('');
   const [warningBorderFName, setWarningBorderFName] = useState('1px solid gray');
   const [warningBorderLName, setWarningBorderLName] = useState('1px solid gray');
+  const [warningBorderEmail, setWarningBorderEmail] = useState('1px solid gray');
+  const [warningBorderPassword, setWarningBorderPassword] = useState('1px solid gray');
   const [namesErrorsContainer, setNamesErrorsContainer] = useState('none');
   const [displayErrorFName, setDisplayErrorFName] = useState('none');
   const [displayErrorLName, setDisplayErrorLName] = useState('none');
+  const [displayErrorEmail, setDisplayErrorEmail] = useState('none');
+  const [displayErrorPassword, setDisplayErrorPassword] = useState('none');
 
   useEffect(() => {
     if (displayErrorFName === 'none' && displayErrorLName === 'none') {
@@ -24,12 +32,9 @@ function SignUpPersonal() {
     setDisplayErrorFName('none');
   };
 
-  const handleFocusFirstName = (e) => {
+  const handleFocusFirstName = () => {
     setWarningBorderFName('1px solid gray');
     setOutlineFName('2px solid #0060df');
-    if (e.target.value !== '') {
-      setDisplayErrorFName('none');
-    }
   };
 
   const handleFocusOutFirstName = (e) => {
@@ -63,6 +68,48 @@ function SignUpPersonal() {
     }
     else {
       setDisplayErrorLName('none');
+    }
+  };
+
+  const handleChangeEmail = (e) => {
+    setValueEmail(e.target.value);
+    setDisplayErrorEmail('none');
+  };
+
+  const handleFocusEmail = () => {
+    setWarningBorderEmail('1px solid gray');
+    setOutlineEmail('2px solid #0060df');
+  };
+
+  const handleFocusOutEmail = (e) => {
+    setOutlineEmail('none');
+    if (e.target.value === '') {
+      setWarningBorderEmail('1px solid #e0103a');
+      setDisplayErrorEmail('block');
+    }
+    else {
+      setDisplayErrorEmail('none');
+    }
+  };
+
+  const handleChangePassword = (e) => {
+    setValuePassword(e.target.value);
+    setDisplayErrorPassword('none');
+  };
+
+  const handleFocusPassword = () => {
+    setWarningBorderPassword('1px solid gray');
+    setOutlinePassword('2px solid #0060df');
+  };
+
+  const handleFocusOutPassword = (e) => {
+    setOutlinePassword('none');
+    if (e.target.value === '') {
+      setWarningBorderPassword('1px solid #e0103a');
+      setDisplayErrorPassword('block');
+    }
+    else {
+      setDisplayErrorPassword('none');
     }
   };
 
@@ -132,7 +179,23 @@ function SignUpPersonal() {
             type='text'
             id='sign-up-email'
             className='sign-up-personal__input-email'
+            value={valueEmail}
+            onChange={handleChangeEmail}
+            onFocus={handleFocusEmail}
+            onBlur={handleFocusOutEmail}
+            style={{
+              outline: outlineEmail,
+              border: warningBorderEmail
+            }}
           />
+        </div>
+        <div
+          className='sign-up-personal__email-error'
+          style={{
+            display: displayErrorEmail
+          }}
+        >
+          Please enter your email address.
         </div>
         <div className='sign-up-personal__password'>
           <label htmlFor='sign-up-password'>Password</label>
@@ -140,7 +203,23 @@ function SignUpPersonal() {
             type='password'
             id='sign-up-password'
             className='sign-up-personal__input-password'
+            value={valuePassword}
+            onChange={handleChangePassword}
+            onFocus={handleFocusPassword}
+            onBlur={handleFocusOutPassword}
+            style={{
+              outline: outlinePassword,
+              border: warningBorderPassword
+            }}
           />
+        </div>
+        <div
+          className='sign-up-personal__password-error'
+          style={{
+            display: displayErrorPassword
+          }}
+        >
+          Please enter a password.
         </div>
         <div className='sign-up-personal__agreement-and-notice'>
           <p>
