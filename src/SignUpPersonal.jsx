@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './SignUpPersonal.css';
 import { Link } from 'react-router-dom';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
 
 function SignUpPersonal() {
   const [outlineFName, setOutlineFName] = useState('none');
@@ -20,6 +22,7 @@ function SignUpPersonal() {
   const [displayErrorLName, setDisplayErrorLName] = useState('none');
   const [displayErrorEmail, setDisplayErrorEmail] = useState('none');
   const [displayErrorPassword, setDisplayErrorPassword] = useState('none');
+  const [unhidePassword, setUnhidePassword] = useState(false);
 
   useEffect(() => {
     if (displayErrorFName === 'none' && displayErrorLName === 'none') {
@@ -113,6 +116,11 @@ function SignUpPersonal() {
     }
   };
 
+  const handleClickUnhidePassword = (e) => {
+    e.preventDefault();
+    unhidePassword ? setUnhidePassword(false) : setUnhidePassword(true);
+  };
+
   return (
     <div className='sign-up-personal__container'>
       <form className='sign-up-personal__form'>
@@ -200,7 +208,7 @@ function SignUpPersonal() {
         <div className='sign-up-personal__password'>
           <label htmlFor='sign-up-password'>Password</label>
           <input
-            type='password'
+            type={unhidePassword ? 'text' : 'password'}
             id='sign-up-password'
             className='sign-up-personal__input-password'
             value={valuePassword}
@@ -212,6 +220,17 @@ function SignUpPersonal() {
               border: warningBorderPassword
             }}
           />
+          <div
+            className='sign-up-personal__password-unhide'
+            onClick={handleClickUnhidePassword}
+            onKeyDown={handleClickUnhidePassword}
+            role='button'
+            tabIndex='0'
+          >
+            {unhidePassword
+              ? <VisibilityOutlinedIcon fontSize='small' />
+              : <VisibilityOffOutlinedIcon fontSize='small' />}
+          </div>
         </div>
         <div
           className='sign-up-personal__password-error'
