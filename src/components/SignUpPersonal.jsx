@@ -3,9 +3,15 @@ import './SignUpPersonal.css';
 import { Link } from 'react-router-dom';
 
 function SignUpPersonal() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <div className='sign-up-personal__container'>
-      <form className='sign-up-personal__form'>
+      <form
+        onSubmit={handleSubmit}
+        className='sign-up-personal__form'
+      >
         <div className='sign-up-personal__first-and-last-name'>
           <div className='sign-up-personal__first-name'>
             <label htmlFor='first-name'>First name</label>

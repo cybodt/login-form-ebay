@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SignIn from './SignIn';
-import SignUpWelcome from './SignUpWelcome';
-import SignUpPersonal from './SignUpPersonal';
+import SignIn from './components/SignIn';
+import SignUpWelcome from './components/SignUpWelcome';
+import SignUpPersonal from './components/SignUpPersonal';
 
 function App() {
   return (
