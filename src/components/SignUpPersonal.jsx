@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SignUpPersonal.css';
 import { Link } from 'react-router-dom';
+import PersonalFormInput from './PersonalFormInput';
 
 function SignUpPersonal() {
+  const [values, setValues] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
+
+  const inputs = [
+    {
+      id: 'first-name',
+      name: 'first-name',
+      type: 'text',
+      label: 'First name'
+    },
+    {
+      id: 'last-name',
+      name: 'last-name',
+      type: 'text',
+      label: 'Last name'
+    },
+    {
+      id: 'email',
+      name: 'email',
+      type: 'text',
+      label: 'Email'
+    },
+    {
+      id: 'password',
+      name: 'password',
+      type: 'password',
+      label: 'Password'
+    }
+  ];
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -13,39 +48,43 @@ function SignUpPersonal() {
         className='sign-up-personal__form'
       >
         <div className='sign-up-personal__first-and-last-name'>
-          <div className='sign-up-personal__first-name'>
+          <PersonalFormInput />
+          {/* <div className='sign-up-personal__first-name'>
             <label htmlFor='first-name'>First name</label>
             <input
               type='text'
               id='first-name'
               className='sign-up-personal__input-first-name'
             />
-          </div>
-          <div className='sign-up-personal__last-name'>
+          </div> */}
+          <PersonalFormInput />
+          {/* <div className='sign-up-personal__last-name'>
             <label htmlFor='last-name'>Last name</label>
             <input
               type='text'
               id='last-name'
               className='sign-up-personal__input-last-name'
             />
-          </div>
+          </div> */}
         </div>
-        <div className='sign-up-personal__email'>
+        <PersonalFormInput />
+        {/* <div className='sign-up-personal__email'>
           <label htmlFor='sign-up-email'>Email</label>
           <input
             type='text'
             id='sign-up-email'
             className='sign-up-personal__input-email'
           />
-        </div>
-        <div className='sign-up-personal__password'>
+        </div> */}
+        <PersonalFormInput />
+        {/* <div className='sign-up-personal__password'>
           <label htmlFor='sign-up-password'>Password</label>
           <input
             type='password'
             id='sign-up-password'
             className='sign-up-personal__input-password'
           />
-        </div>
+        </div> */}
         <div className='sign-up-personal__agreement-and-notice'>
           <p>
             By <b>Creating an account</b>, you agree to our <Link to='/useragreement'>User Agreement</Link> and acknowledge reading our <Link to='/userprivacynotice'>User Privacy Notice </Link>.
