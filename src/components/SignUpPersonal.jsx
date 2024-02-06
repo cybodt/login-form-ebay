@@ -42,7 +42,7 @@ function SignUpPersonal() {
       type: 'password',
       name: 'password',
       label: 'Password',
-      containerClassName: 'sign-up-personal__password'
+      containerClassName: 'sign-up-personal__first-name'
     }
   ];
 
@@ -55,27 +55,25 @@ function SignUpPersonal() {
         onSubmit={handleSubmit}
         className='sign-up-personal__form'
       >
-        <div className='sign-up-personal__first-and-last-name'>
-          <PersonalFormInput />
-          {/* <div className='sign-up-personal__first-name'>
+        <PersonalFormInput />
+        {/* <div className='sign-up-personal__first-and-last-name'>
+          <div className='sign-up-personal__first-name'>
             <label htmlFor='first-name'>First name</label>
             <input
               type='text'
               id='first-name'
               className='sign-up-personal__input-first-name'
             />
-          </div> */}
-          <PersonalFormInput />
-          {/* <div className='sign-up-personal__last-name'>
+          </div>
+          <div className='sign-up-personal__last-name'>
             <label htmlFor='last-name'>Last name</label>
             <input
               type='text'
               id='last-name'
               className='sign-up-personal__input-last-name'
             />
-          </div> */}
-        </div>
-        <PersonalFormInput />
+          </div>
+        </div> */}
         {/* <div className='sign-up-personal__email'>
           <label htmlFor='sign-up-email'>Email</label>
           <input
@@ -84,7 +82,6 @@ function SignUpPersonal() {
             className='sign-up-personal__input-email'
           />
         </div> */}
-        <PersonalFormInput />
         {/* <div className='sign-up-personal__password'>
           <label htmlFor='sign-up-password'>Password</label>
           <input
