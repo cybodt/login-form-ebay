@@ -14,27 +14,35 @@ function SignUpPersonal() {
   const inputs = [
     {
       id: 'first-name',
-      name: 'first-name',
+      inputClassName: 'sign-up-personal__input-first-name',
       type: 'text',
-      label: 'First name'
+      name: 'first-name',
+      label: 'First name',
+      containerClassName: 'sign-up-personal__first-name'
     },
     {
       id: 'last-name',
-      name: 'last-name',
+      inputClassName: 'sign-up-personal__input-last-name',
       type: 'text',
-      label: 'Last name'
+      name: 'last-name',
+      label: 'Last name',
+      containerClassName: 'sign-up-personal__last-name'
     },
     {
       id: 'email',
-      name: 'email',
+      inputClassName: 'sign-up-personal__input-email',
       type: 'text',
-      label: 'Email'
+      name: 'email',
+      label: 'Email',
+      containerClassName: 'sign-up-personal__email'
     },
     {
       id: 'password',
-      name: 'password',
+      inputClassName: 'sign-up-personal__input-password',
       type: 'password',
-      label: 'Password'
+      name: 'password',
+      label: 'Password',
+      containerClassName: 'sign-up-personal__password'
     }
   ];
 
