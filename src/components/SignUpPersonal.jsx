@@ -5,8 +5,8 @@ import PersonalFormInput from './PersonalFormInput';
 
 function SignUpPersonal() {
   const [values, setValues] = useState({
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     email: '',
     password: ''
   });
@@ -14,23 +14,23 @@ function SignUpPersonal() {
   const inputs = [
     {
       id: 'first-name',
-      inputClassName: 'sign-up-personal__input-first-name',
+      className: 'sign-up-personal__input-first-name',
       type: 'text',
-      name: 'first-name',
+      name: 'firstname',
       label: 'First name',
       containerClassName: 'sign-up-personal__first-name'
     },
     {
       id: 'last-name',
-      inputClassName: 'sign-up-personal__input-last-name',
+      className: 'sign-up-personal__input-last-name',
       type: 'text',
-      name: 'last-name',
+      name: 'lastname',
       label: 'Last name',
       containerClassName: 'sign-up-personal__last-name'
     },
     {
       id: 'email',
-      inputClassName: 'sign-up-personal__input-email',
+      className: 'sign-up-personal__input-email',
       type: 'text',
       name: 'email',
       label: 'Email',
@@ -38,7 +38,7 @@ function SignUpPersonal() {
     },
     {
       id: 'password',
-      inputClassName: 'sign-up-personal__input-password',
+      className: 'sign-up-personal__input-password',
       type: 'password',
       name: 'password',
       label: 'Password',
@@ -49,13 +49,28 @@ function SignUpPersonal() {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value
+    });
+  };
+
   return (
     <div className='sign-up-personal__container'>
       <form
         onSubmit={handleSubmit}
         className='sign-up-personal__form'
       >
-        <PersonalFormInput />
+        {inputs.map(input => (
+          <PersonalFormInput
+            key={input.id}
+            value={values[input.name]}
+            onChange={handleChange}
+            extraProps={input}
+          />
+        ))}
         {/* <div className='sign-up-personal__first-and-last-name'>
           <div className='sign-up-personal__first-name'>
             <label htmlFor='first-name'>First name</label>
