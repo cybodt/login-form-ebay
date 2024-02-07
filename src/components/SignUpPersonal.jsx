@@ -42,7 +42,7 @@ function SignUpPersonal() {
       type: 'password',
       name: 'password',
       label: 'Password',
-      containerClassName: 'sign-up-personal__first-name'
+      containerClassName: 'sign-up-personal__password'
     }
   ];
 
