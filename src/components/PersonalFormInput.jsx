@@ -1,4 +1,5 @@
 import React from 'react';
+import './PersonalFormInput.css';
 
 function PersonalFormInput(props) {
   const {

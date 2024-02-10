@@ -9,28 +9,33 @@
 .sign-up-personal__form {
   width: 300px;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, 40px) auto 48px;
+  /* flex-direction: column; */
+  align-items: center;
+  /* justify-content: center; */
+  align-content: space-evenly; 
+  background-color: salmon;
 }
 
-.sign-up-personal__first-and-last-name {
+/* .sign-up-personal__first-and-last-name {
   position: relative;
   width: 100%;
   display: flex;
   justify-content: space-between;
-}
+} */
 
-.sign-up-personal__first-and-last-name label {
+/* .sign-up-personal__first-and-last-name label {
   position: absolute;
   top: 11px;
   padding-left: 15px;
   transition: .5s;
   pointer-events: none;
   font-size: .875rem;
-}
+} */
 
-.sign-up-personal__first-name,
+/* .sign-up-personal__first-name,
 .sign-up-personal__first-name>input,
 .sign-up-personal__last-name,
 .sign-up-personal__last-name>input {
@@ -39,34 +44,34 @@
   box-sizing: border-box;
   border-radius: 7px;
   outline: none;
-}
+} */
 
-.sign-up-personal__first-and-last-name-errors {
+/* .sign-up-personal__first-and-last-name-errors {
   width: 100%;
   height: 31px;
   display: flex;
   margin-top: -28px;
   margin-bottom: -28px;
-}
+} */
 
-.sign-up-personal__first-name-error,
+/* .sign-up-personal__first-name-error,
 .sign-up-personal__last-name-error {
   height: 100%;
   width: 138px;
   font-size: 12px;
   font-family: 'Market-Sans', 'Market-Sans2', Arial, Helvetica, sans-serif;
   color: #c9002c;
-}
+} */
 
-.sign-up-personal__first-name-error {
+/* .sign-up-personal__first-name-error {
   margin-right: auto;
-}
+} */
 
-.sign-up-personal__last-name-error {
+/* .sign-up-personal__last-name-error {
   margin-left: auto;
-}
+} */
 
-.sign-up-personal__email,
+/* .sign-up-personal__email,
 .sign-up-personal__email>input,
 .sign-up-personal__password,
 .sign-up-personal__password>input {
@@ -75,28 +80,28 @@
   box-sizing: border-box;
   border-radius: 7px;
   outline: none;
-}
+} */
 
-.sign-up-personal__email,
+/* .sign-up-personal__email,
 .sign-up-personal__password {
   position: relative;
-}
+} */
 
-.sign-up-personal__email>label,
+/* .sign-up-personal__email>label,
 .sign-up-personal__password>label {
   position: absolute;
   top: 10px;
   left: 15px;
   font-size: .875rem;
-}
+} */
 
-.sign-up-personal__password-unhide {
+/* .sign-up-personal__password-unhide {
   position: absolute;
   top: 10px;
   right: 12px;
-}
+} */
 
-.sign-up-personal__email-error,
+/* .sign-up-personal__email-error,
 .sign-up-personal__password-error {
   width: 100%;
   height: 31px;
@@ -105,13 +110,13 @@
   font-size: 12px;
   font-family: 'Market-Sans', 'Market-Sans2', Arial, Helvetica, sans-serif;
   color: #c9002c;
-}
+} */
 
-.sign-up-personal__email-error{
+/* .sign-up-personal__email-error{
   margin-bottom: -44px;
-}
+} */
 
-.sign-up-personal__input-first-name,
+/* .sign-up-personal__input-first-name,
 .sign-up-personal__input-last-name,
 .sign-up-personal__input-email,
 .sign-up-personal__input-password {
@@ -120,7 +125,7 @@
   background-color: #f7f7f7;
   color: black;
   font-size: 1rem;
-}
+} */
 
 .sign-up-personal__agreement-and-notice {
   margin: -20px 0 -20px;

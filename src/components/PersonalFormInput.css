@@ -1,0 +1,18 @@
+.sign-up-personal__first-name,
+.sign-up-personal__first-name>input,
+.sign-up-personal__last-name,
+.sign-up-personal__last-name>input {
+  width: 138px;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 7px;
+  outline: none;
+}
+
+
+.sign-up-personal__email,
+.sign-up-personal__password,
+.sign-up-personal__agreement-and-notice,
+.sign-up-personal__create-account-button {
+  grid-column: 1 / span 2;
+}
