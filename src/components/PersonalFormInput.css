@@ -25,10 +25,9 @@
 }
 
 .sign-up-personal__email,
-.sign-up-personal__password,
-.sign-up-personal__agreement-and-notice,
-.sign-up-personal__create-account-button {
+.sign-up-personal__password {
   grid-column: 1 / span 2;
+  position: relative;
 }
 
 .sign-up-personal__email,
@@ -40,11 +39,6 @@
   box-sizing: border-box;
   border-radius: 7px;
   outline: none;
-}
-
-.sign-up-personal__email,
-.sign-up-personal__password {
-  position: relative;
 }
 
 .sign-up-personal__email>label,

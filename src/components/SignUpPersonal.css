@@ -10,12 +10,11 @@
   width: 300px;
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, 40px) auto 48px;
-  /* justify-items: center; */
-  align-items: center;
-  /* justify-content: space-between; */
-  align-content: space-evenly; 
+  grid-template-columns: 138px 138px;
+  grid-template-rows: auto;
+  row-gap: 25px;
+  align-content: center; 
+  justify-content: space-between;
   background-color: salmon;
 }
 
@@ -66,6 +65,7 @@
 } */
 
 .sign-up-personal__agreement-and-notice {
+  grid-column: 1 / span 2;
   margin: -20px 0 -20px;
   padding: 8px 0;
   font-size: 12px;
@@ -78,6 +78,7 @@
 }
 
 .sign-up-personal__create-account-button {
+  grid-column: 1 / span 2;
   width: 100%;
   min-height: 48px;
   margin-top: 8px;
