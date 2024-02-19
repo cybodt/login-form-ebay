@@ -15,7 +15,7 @@
   row-gap: 25px;
   align-content: center; 
   justify-content: space-between;
-  background-color: salmon;
+  /* background-color: salmon; */
 }
 
 /* .sign-up-personal__first-and-last-name-errors {
