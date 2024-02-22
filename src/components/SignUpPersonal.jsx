@@ -17,6 +17,7 @@ function SignUpPersonal() {
       className: 'sign-up-personal__input-first-name',
       type: 'text',
       name: 'firstname',
+      errorMessage: '',
       label: 'First name',
       containerClassName: 'sign-up-personal__first-name'
     },
@@ -25,6 +26,7 @@ function SignUpPersonal() {
       className: 'sign-up-personal__input-last-name',
       type: 'text',
       name: 'lastname',
+      errorMessage: '',
       label: 'Last name',
       containerClassName: 'sign-up-personal__last-name'
     },
@@ -33,6 +35,7 @@ function SignUpPersonal() {
       className: 'sign-up-personal__input-email',
       type: 'text',
       name: 'email',
+      errorMessage: '',
       label: 'Email',
       containerClassName: 'sign-up-personal__email'
     },
@@ -41,6 +44,7 @@ function SignUpPersonal() {
       className: 'sign-up-personal__input-password',
       type: 'password',
       name: 'password',
+      errorMessage: '',
       label: 'Password',
       containerClassName: 'sign-up-personal__password'
     }
@@ -71,40 +75,6 @@ function SignUpPersonal() {
             extraProps={input}
           />
         ))}
-        {/* <div className='sign-up-personal__first-and-last-name'>
-          <div className='sign-up-personal__first-name'>
-            <label htmlFor='first-name'>First name</label>
-            <input
-              type='text'
-              id='first-name'
-              className='sign-up-personal__input-first-name'
-            />
-          </div>
-          <div className='sign-up-personal__last-name'>
-            <label htmlFor='last-name'>Last name</label>
-            <input
-              type='text'
-              id='last-name'
-              className='sign-up-personal__input-last-name'
-            />
-          </div>
-        </div> */}
-        {/* <div className='sign-up-personal__email'>
-          <label htmlFor='sign-up-email'>Email</label>
-          <input
-            type='text'
-            id='sign-up-email'
-            className='sign-up-personal__input-email'
-          />
-        </div> */}
-        {/* <div className='sign-up-personal__password'>
-          <label htmlFor='sign-up-password'>Password</label>
-          <input
-            type='password'
-            id='sign-up-password'
-            className='sign-up-personal__input-password'
-          />
-        </div> */}
         <div className='sign-up-personal__agreement-and-notice'>
           <p>
             By <b>Creating an account</b>, you agree to our <Link to='/useragreement'>User Agreement</Link> and acknowledge reading our <Link to='/userprivacynotice'>User Privacy Notice </Link>.
@@ -124,7 +94,7 @@ function SignUpPersonal() {
         <button
           type='button'
           className='sign-up-personal__continue-btns
-                       sign-up-personal__google-btn'
+                     sign-up-personal__google-btn'
         >
           <img
             src='/images/logos-on-buttons/google-logo.png'
@@ -135,7 +105,7 @@ function SignUpPersonal() {
         <button
           type='button'
           className='sign-up-personal__continue-btns
-                       sign-up-personal__fb-btn'
+                     sign-up-personal__fb-btn'
         >
           <img
             src='/images/logos-on-buttons/facebook-logo.png'
@@ -146,7 +116,7 @@ function SignUpPersonal() {
         <button
           type='button'
           className='sign-up-personal__continue-btns
-                       sign-up-personal__apple-btn'
+                     sign-up-personal__apple-btn'
         >
           <img
             src='/images/logos-on-buttons/apple-logo.png'

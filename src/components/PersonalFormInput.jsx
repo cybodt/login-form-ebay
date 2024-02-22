@@ -13,6 +13,7 @@ function PersonalFormInput(props) {
     type,
     name,
     label,
+    errorMessage,
     containerClassName
   } = extraProps;
 
@@ -27,6 +28,7 @@ function PersonalFormInput(props) {
         value={value}
         onChange={onChange}
       />
+      <span>errorMessage</span>
     </div>
   );
 }
