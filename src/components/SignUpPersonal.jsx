@@ -11,14 +11,25 @@ function SignUpPersonal() {
     password: ''
   });
 
+  // const [errorMessages, setErrorMessages] = useState({
+  //   errorFirstName: 'Please enter your first name',
+  //   errorLastName: 'Please enter your last name',
+  //   // errorEmail: '',
+  //   // errorPassword: ''
+  // });
+
+  const [unfocused, setUnfocused] = useState(false);
+
   const inputs = [
     {
       id: 'first-name',
       className: 'sign-up-personal__input-first-name',
       type: 'text',
       name: 'firstname',
-      errorMessage: '',
+      maxlength: 63,
+      errorMessage: 'Please enter your first name',
       label: 'First name',
+      required: true,
       containerClassName: 'sign-up-personal__first-name'
     },
     {
@@ -26,8 +37,10 @@ function SignUpPersonal() {
       className: 'sign-up-personal__input-last-name',
       type: 'text',
       name: 'lastname',
-      errorMessage: '',
+      maxlength: 63,
+      errorMessage: 'Please enter your last name',
       label: 'Last name',
+      required: true,
       containerClassName: 'sign-up-personal__last-name'
     },
     {
@@ -35,8 +48,10 @@ function SignUpPersonal() {
       className: 'sign-up-personal__input-email',
       type: 'text',
       name: 'email',
+      maxlength: 64,
       errorMessage: '',
       label: 'Email',
+      required: true,
       containerClassName: 'sign-up-personal__email'
     },
     {
@@ -44,8 +59,10 @@ function SignUpPersonal() {
       className: 'sign-up-personal__input-password',
       type: 'password',
       name: 'password',
+      maxlength: 64,
       errorMessage: '',
       label: 'Password',
+      required: true,
       containerClassName: 'sign-up-personal__password'
     }
   ];
@@ -61,6 +78,19 @@ function SignUpPersonal() {
     });
   };
 
+  const handleFocus = (e) => {
+    setUnfocused(true);
+    console.log('test focus');
+    console.log(typeof unfocused);
+    console.log(unfocused);
+
+    // if (e.target.name === 'firstname') {
+    //   if (e.target.value === '') {
+    //     setErrorMessages(errorMessages.errorFirstName);
+    //   }
+    // }
+  };
+
   return (
     <div className='sign-up-personal__container'>
       <form
@@ -72,6 +102,8 @@ function SignUpPersonal() {
             key={input.id}
             value={values[input.name]}
             onChange={handleChange}
+            onBlur={handleFocus}
+            unfocused={unfocused.toString()}
             extraProps={input}
           />
         ))}

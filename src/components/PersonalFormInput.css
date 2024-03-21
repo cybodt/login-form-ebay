@@ -58,3 +58,15 @@
   left: 15px;
   font-size: .875rem;
 }
+
+.personal-form-input__error-messages {
+  display: none;
+  height: 31px;
+  font-size: 12px;
+  font-family: 'Market-Sans', 'Market-Sans2', Arial, Helvetica, sans-serif;
+  color: #c9002c;
+}
+
+input:invalid[data-unfocused='true']~.personal-form-input__error-messages {
+  display: block;
+}

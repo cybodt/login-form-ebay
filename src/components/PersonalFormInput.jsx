@@ -5,6 +5,8 @@ function PersonalFormInput(props) {
   const {
     value,
     onChange,
+    onBlur,
+    unfocused,
     extraProps
   } = props;
   const {
@@ -12,6 +14,8 @@ function PersonalFormInput(props) {
     className,
     type,
     name,
+    required,
+    maxlength,
     label,
     errorMessage,
     containerClassName
@@ -26,9 +30,17 @@ function PersonalFormInput(props) {
         type={type}
         name={name}
         value={value}
+        maxLength={maxlength}
+        required={required}
         onChange={onChange}
+        onBlur={onBlur}
+        data-unfocused={unfocused}
       />
-      <span>errorMessage</span>
+      <span
+        className='personal-form-input__error-messages'
+      >
+        {errorMessage}
+      </span>
     </div>
   );
 }
