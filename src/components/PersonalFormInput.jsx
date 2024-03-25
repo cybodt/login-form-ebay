@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './PersonalFormInput.css';
 
 function PersonalFormInput(props) {
+  const [unfocused, setUnfocused] = useState(false);
   const {
     value,
     onChange,
-    onBlur,
-    unfocused,
     extraProps
   } = props;
   const {
@@ -17,9 +16,14 @@ function PersonalFormInput(props) {
     required,
     maxlength,
     label,
+    pattern,
     errorMessage,
     containerClassName
   } = extraProps;
+
+  const handleFocus = () => {
+    setUnfocused(true);
+  };
 
   return (
     <div className={containerClassName}>
@@ -31,9 +35,10 @@ function PersonalFormInput(props) {
         name={name}
         value={value}
         maxLength={maxlength}
+        pattern={pattern}
         required={required}
         onChange={onChange}
-        onBlur={onBlur}
+        onBlur={handleFocus}
         data-unfocused={unfocused}
       />
       <span

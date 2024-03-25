@@ -18,8 +18,6 @@ function SignUpPersonal() {
   //   // errorPassword: ''
   // });
 
-  const [unfocused, setUnfocused] = useState(false);
-
   const inputs = [
     {
       id: 'first-name',
@@ -29,6 +27,7 @@ function SignUpPersonal() {
       maxlength: 63,
       errorMessage: 'Please enter your first name',
       label: 'First name',
+      pattern: '^[A-Za-z0-9]{3,16}$',
       required: true,
       containerClassName: 'sign-up-personal__first-name'
     },
@@ -40,6 +39,7 @@ function SignUpPersonal() {
       maxlength: 63,
       errorMessage: 'Please enter your last name',
       label: 'Last name',
+      pattern: '^[A-Za-z0-9]{3,16}$',
       required: true,
       containerClassName: 'sign-up-personal__last-name'
     },
@@ -49,8 +49,9 @@ function SignUpPersonal() {
       type: 'text',
       name: 'email',
       maxlength: 64,
-      errorMessage: '',
+      errorMessage: 'Please enter your email address.',
       label: 'Email',
+      pattern: '^[a-z0-9]+@[a-z]+.[a-z]{2,3}$',
       required: true,
       containerClassName: 'sign-up-personal__email'
     },
@@ -60,8 +61,10 @@ function SignUpPersonal() {
       type: 'password',
       name: 'password',
       maxlength: 64,
-      errorMessage: '',
+      errorMessage: 'Please enter a password.',
       label: 'Password',
+      // Minimum eight characters, at least one letter, one number and one special character
+      pattern: '"^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$"',
       required: true,
       containerClassName: 'sign-up-personal__password'
     }
@@ -78,19 +81,6 @@ function SignUpPersonal() {
     });
   };
 
-  const handleFocus = (e) => {
-    setUnfocused(true);
-    console.log('test focus');
-    console.log(typeof unfocused);
-    console.log(unfocused);
-
-    // if (e.target.name === 'firstname') {
-    //   if (e.target.value === '') {
-    //     setErrorMessages(errorMessages.errorFirstName);
-    //   }
-    // }
-  };
-
   return (
     <div className='sign-up-personal__container'>
       <form
@@ -102,8 +92,6 @@ function SignUpPersonal() {
             key={input.id}
             value={values[input.name]}
             onChange={handleChange}
-            onBlur={handleFocus}
-            unfocused={unfocused.toString()}
             extraProps={input}
           />
         ))}
