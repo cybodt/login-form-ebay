@@ -33,20 +33,22 @@ function PersonalFormInput(props) {
         break;
       }
       case 'email': {
+        // convert regex string(pattern) to regex object(patternX)
+        const patternX = new RegExp(pattern);
         console.log(/^([A-Za-z0-9_\-.+])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,})$/.test(e.target.value));
         if (e.target.value.length > 0 && e.target.value.length < 6) {
           setErrorMessage('Email address should be at least 6 characters.');
         }
-        // // else if (e.target.value.length >= 6 && !(/{e.target.value}/.test(e.target.value))) {
-        // else if (e.target.value.length >= 6 && !(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(e.target.value))) {
-        //   setErrorMessage('Email address is invalid. Please enter a valid email address.');
-        //   console.log(typeof e.target.value);
-        //   console.log(typeof `/${pattern}/`);
-        //   console.log(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(e.target.value));
-        // }
-        // else {
-        //   setErrorMessage('Please enter your email address.');
-        // }
+        // else if (e.target.value.length >= 6 && !(/{e.target.value}/.test(e.target.value))) {
+        else if (e.target.value.length >= 6 && !(patternX.test(e.target.value))) {
+          setErrorMessage('Email address is invalid. Please enter a valid email address.');
+          console.log(typeof e.target.value);
+          console.log(typeof patternX);
+          console.log(patternX.test(e.target.value));
+        }
+        else {
+          setErrorMessage('Please enter your email address.');
+        }
         break;
       }
       default:
