@@ -2,8 +2,7 @@
   .create-account {
     width: 1584px;
     display: flex;
-    /* margin: auto; */
-    background-color: lightgreen;
+    margin: auto;
   }
 }
 
@@ -11,20 +10,16 @@
   .create-account {
     display: flex;
     margin: auto;
-    background-color: lightgreen
   }
 }
 
 .create-account__image {
-  width: 713px;
-  height: 825px;
-  background-color: lightblue; 
-}
-
-.create-account__image>img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  display: flex;
+  border-radius: 16px;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .create-account__container {
@@ -32,20 +27,18 @@
   height: 750px;
   margin: 0 auto;
   padding: 0 16px;
-  background-color: coral;
+  box-sizing: border-box;
 }
 
 .create-account__choose-type {
   width: 100%;
   height: 40px;
   display: flex;
-  justify-content: space-between;
+  margin-bottom: 16px;
   padding: 2px;
-  gap: 8px;
+  gap: 18px;
   box-sizing: border-box;
   border: 1px solid #8f8f8f;
   border-radius: 24px;
-  margin-bottom: 16px;
   background-color: #fff;
 }
-
