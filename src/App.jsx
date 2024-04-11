@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SignIn from './components/SignIn';
 import CreateAccount from './components/CreateAccount';
@@ -10,7 +9,7 @@ function App() {
       <div className='app'>
         <Routes>
           <Route
-            path='/createanaccount'
+            path='/createaccount'
             element={[
               <CreateAccount />
             ]}

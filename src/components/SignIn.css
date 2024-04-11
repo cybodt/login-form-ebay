@@ -1,5 +1,9 @@
 .sign-in__container {
   width: 355px;
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
