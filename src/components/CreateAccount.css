@@ -60,5 +60,19 @@
 }
 
 .create-account__choose-type>button {
+  width: 50%;
+  height: 34px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 16px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 26px;
+  font-size: 13px;
   font-family: inherit;
+  cursor: pointer;
+  /* color: #fff;
+  background-color: #191919; */
 }

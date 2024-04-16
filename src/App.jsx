@@ -11,7 +11,7 @@ function App() {
           <Route
             path='/createaccount'
             element={[
-              <CreateAccount />
+              <CreateAccount key='1' />
             ]}
           />
           <Route
