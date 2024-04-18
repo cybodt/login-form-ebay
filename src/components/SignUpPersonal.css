@@ -1,21 +1,20 @@
-.sign-up-personal__container {
+/* .sign-up-personal__container {
   width: 774px;
   height: 400px;
   display: flex;
   align-items: center;
-  margin-top: 50px;
-}
+} */
 
 .sign-up-personal__form {
-  width: 300px;
-  height: 100%;
+  width: 410px;
+  height: 328px;
   display: grid;
-  grid-template-columns: 138px 138px;
+  grid-template-columns: 48% 48%;
   grid-template-rows: auto;
   row-gap: 25px;
-  align-content: center; 
+  align-content: start; 
   justify-content: space-between;
-  /* background-color: salmon; */
+  background-color: salmon;
 }
 
 /* .sign-up-personal__first-and-last-name-errors {

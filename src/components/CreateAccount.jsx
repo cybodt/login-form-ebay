@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './CreateAccount.css';
+import SignUpPersonal from './SignUpPersonal';
 
 function CreateAccount() {
   const styleSelect = ({
@@ -57,6 +58,7 @@ function CreateAccount() {
             Business
           </button>
         </div>
+        <SignUpPersonal />
       </div>
     </div>
   );

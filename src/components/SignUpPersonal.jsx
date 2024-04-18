@@ -71,35 +71,40 @@ function SignUpPersonal() {
   };
 
   return (
-    <div className='sign-up-personal__container'>
-      <form
-        onSubmit={handleSubmit}
-        className='sign-up-personal__form'
-      >
-        {inputs.map(input => (
-          <PersonalFormInput
-            key={input.id}
-            value={values[input.name]}
-            onChange={handleChange}
-            extraProps={input}
-          />
-        ))}
-        <div className='sign-up-personal__agreement-and-notice'>
-          <p>
-            By <b>Creating an account</b>, you agree to our <Link to='/useragreement'>User Agreement</Link> and acknowledge reading our <Link to='/userprivacynotice'>User Privacy Notice </Link>.
-          </p>
-        </div>
-        <button
-          type='submit'
-          className='sign-up-personal__create-account-button'
-        >Create account
-        </button>
-      </form>
-      <div className='sign-up-personal__vertical-delimiter-container'>
+    // <div className='sign-up-personal__container'>
+    <form
+      onSubmit={handleSubmit}
+      className='sign-up-personal__form'
+    >
+      {inputs.map(input => (
+        <PersonalFormInput
+          key={input.id}
+          value={values[input.name]}
+          onChange={handleChange}
+          extraProps={input}
+        />
+      ))}
+      <div className='sign-up-personal__agreement-and-notice'>
+        <p>
+          By <b>Creating an account</b>, you agree to our <Link to='/useragreement'>User Agreement</Link> and acknowledge reading our <Link to='/userprivacynotice'>User Privacy Notice </Link>.
+        </p>
+      </div>
+      <button
+        type='submit'
+        className='sign-up-personal__create-account-button'
+      >Create account
+      </button>
+    </form>
+  );
+}
+
+export default SignUpPersonal;
+
+{/* <div className='sign-up-personal__vertical-delimiter-container'>
         <div className='sign-up-personal__vertical-line' />
         <div className='sign-up-personal__horizontal-text'>or</div>
-      </div>
-      <div className='sign-up-personal__social-buttons'>
+      </div> */}
+{/* <div className='sign-up-personal__social-buttons'>
         <button
           type='button'
           className='sign-up-personal__continue-btns
@@ -133,9 +138,4 @@ function SignUpPersonal() {
           />
           <span>Continue with Apple</span>
         </button>
-      </div>
-    </div>
-  );
-}
-
-export default SignUpPersonal;
+      </div> */}
