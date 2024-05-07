@@ -11,10 +11,10 @@
   display: grid;
   grid-template-columns: 48% 48%;
   grid-template-rows: auto;
-  row-gap: 25px;
+  row-gap: 16px;
   align-content: start; 
   justify-content: space-between;
-  background-color: salmon;
+  /* background-color: salmon; */
 }
 
 /* .sign-up-personal__first-and-last-name-errors {
@@ -65,8 +65,8 @@
 
 .sign-up-personal__agreement-and-notice {
   grid-column: 1 / span 2;
-  margin: -20px 0 -20px;
-  padding: 8px 0;
+  margin: 0 0 -16px;
+  padding: 0 8px; 
   font-size: 12px;
   line-height: 1.5;
   color: #767676;

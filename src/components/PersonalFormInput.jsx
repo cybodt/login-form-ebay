@@ -21,11 +21,24 @@ function PersonalFormInput(props) {
     containerClassName
   } = extraProps;
 
-  const handleFocus = (e) => {
+  const handleOnFocus = (e) => {
+    switch (true) {
+      case (e.target.name === 'password' && e.target.value.length === 0): {
+        setUnfocused(false);
+        setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
+        break;
+      }
+      default:
+        setErrorMessage('');
+    }
+  };
+
+  const handleOnBlur = (e) => {
     setUnfocused(true);
     switch (e.target.name) {
       case 'firstname': {
         setErrorMessage('Please enter your first name');
+        console.log(unfocused);
         break;
       }
       case 'lastname': {
@@ -35,22 +48,43 @@ function PersonalFormInput(props) {
       case 'email': {
         // convert regex string(pattern) to regex object(patternX)
         const patternX = new RegExp(pattern);
-        console.log(/^([A-Za-z0-9_\-.+])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,})$/.test(e.target.value));
         if (e.target.value.length > 0 && e.target.value.length < 6) {
           setErrorMessage('Email address should be at least 6 characters.');
         }
-        // else if (e.target.value.length >= 6 && !(/{e.target.value}/.test(e.target.value))) {
         else if (e.target.value.length >= 6 && !(patternX.test(e.target.value))) {
           setErrorMessage('Email address is invalid. Please enter a valid email address.');
-          console.log(typeof e.target.value);
-          console.log(typeof patternX);
-          console.log(patternX.test(e.target.value));
         }
         else {
           setErrorMessage('Please enter your email address.');
         }
         break;
       }
+      // case 'password': {
+      //   // const patternX = new RegExp(pattern);
+      //   // if (e.target.value.length > 0 && e.target.value.length < 8) {
+      //   //   setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
+      //   // }
+      //   // else if (e.target.value.length >= 8 && (/[a-zA-Z]/.test(e.target.value))) {
+      //   //   setErrorMessage('')
+      //   // }
+      //   console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(e.target.value));
+      //   switch (true) {
+      //     case (e.target.value.length > 0 && e.target.value.length < 8): {
+      //       // setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
+      //       // if (/[a-zA-Z]/.test(e.target.value) && !(/[0-9]/.test(e.target.value) || (/[#?!@$%^&*-]/.test(e.target.value))))
+      //       console.log('test switch');
+      //       if (!/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(e.target.value)) {
+      //         console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(e.target.value));
+
+      //         setErrorMessage('1At least 1 letter, a number or symbol, at least 8 characters.');
+      //       }
+      //       break;
+      //     }
+      //     default:
+      //       setErrorMessage(e.target.value.length);
+      //   }
+      //   break;
+      // }
       default:
         setErrorMessage('');
     }
@@ -69,12 +103,11 @@ function PersonalFormInput(props) {
         pattern={pattern}
         required={required}
         onChange={onChange}
-        onBlur={handleFocus}
+        onBlur={handleOnBlur}
+        onFocus={e => name === 'password' && handleOnFocus(e)}
         data-unfocused={unfocused}
       />
-      <span
-        className='personal-form-input__error-messages'
-      >
+      <span className='personal-form-input__error-messages'>
         {errorMessage}
       </span>
     </div>

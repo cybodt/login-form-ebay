@@ -61,7 +61,9 @@
 
 .personal-form-input__error-messages {
   display: none;
-  height: 31px;
+  min-height: 20px;
+  padding-top: 6px;
+  margin-bottom: -6px;
   font-size: 12px;
   font-family: 'Market-Sans', 'Market-Sans2', Arial, Helvetica, sans-serif;
   color: #c9002c;
@@ -69,4 +71,9 @@
 
 input:invalid[data-unfocused='true']~.personal-form-input__error-messages {
   display: block;
+}
+
+input:invalid[data-unfocused='false']~.personal-form-input__error-messages {
+  display: block;
+  color: #333;
 }

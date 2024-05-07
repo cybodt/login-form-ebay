@@ -48,12 +48,13 @@ function SignUpPersonal() {
     {
       id: 'password',
       className: 'sign-up-personal__input-password',
-      type: 'password',
+      // type: 'password',
+      type: 'text',
       name: 'password',
       maxlength: 64,
       label: 'Password',
-      // Minimum eight characters, at least one letter, one number and one special character
-      pattern: '"^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$"',
+      // Minimum eight characters with at least one letter and one number or special character
+      pattern: '^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$',
       required: true,
       containerClassName: 'sign-up-personal__password'
     }
@@ -103,7 +104,7 @@ export default SignUpPersonal;
 {/* <div className='sign-up-personal__vertical-delimiter-container'>
         <div className='sign-up-personal__vertical-line' />
         <div className='sign-up-personal__horizontal-text'>or</div>
-      </div> */}
+</div> */}
 {/* <div className='sign-up-personal__social-buttons'>
         <button
           type='button'
@@ -138,4 +139,4 @@ export default SignUpPersonal;
           />
           <span>Continue with Apple</span>
         </button>
-      </div> */}
+</div> */}
