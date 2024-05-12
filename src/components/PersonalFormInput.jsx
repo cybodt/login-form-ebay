@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './PersonalFormInput.css';
 
 function PersonalFormInput(props) {
@@ -21,30 +21,54 @@ function PersonalFormInput(props) {
     containerClassName
   } = extraProps;
 
-  const handleOnFocus = (e) => {
-    switch (true) {
-      case (e.target.name === 'password' && e.target.value.length === 0): {
-        setUnfocused(false);
-        setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
-        break;
+  useEffect(() => {
+    if (name === 'password') {
+      switch (true) {
+        case (value.length > 0 && value.length < 8): {
+          if (/(?=.*?[a-zA-Z])/.test(value) && !/(?=.*?[0-9#?!@$%^&*\\-])/.test(value)) {
+            setErrorMessage('A number or symbol, at least 8 characters.');
+          }
+          else if (!/(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)) {
+            setErrorMessage('At least 1 letter, at least 8 characters.');
+          }
+          else if (/(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)) {
+            setErrorMessage('At least 8 characters.');
+          }
+          else if (!/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value)) {
+            setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
+          }
+          // else {
+          //   setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
+          // }
+          break;
+        }
+        // case (value.length === 0):
+        //   setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
+        //   break;
+        default:
+          setErrorMessage('');
       }
-      default:
-        setErrorMessage('');
+    }
+  }, [onChange]);
+
+  const handleOnFocus = (e) => {
+    setUnfocused(false);
+    if (e.target.value.length === 0) {
+      setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
     }
   };
 
   const handleOnBlur = (e) => {
     setUnfocused(true);
     switch (e.target.name) {
-      case 'firstname': {
+      case 'firstname':
         setErrorMessage('Please enter your first name');
-        console.log(unfocused);
+
         break;
-      }
-      case 'lastname': {
+      case 'lastname':
         setErrorMessage('Please enter your last name');
+
         break;
-      }
       case 'email': {
         // convert regex string(pattern) to regex object(patternX)
         const patternX = new RegExp(pattern);
@@ -57,34 +81,14 @@ function PersonalFormInput(props) {
         else {
           setErrorMessage('Please enter your email address.');
         }
-        break;
       }
-      // case 'password': {
-      //   // const patternX = new RegExp(pattern);
-      //   // if (e.target.value.length > 0 && e.target.value.length < 8) {
-      //   //   setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
-      //   // }
-      //   // else if (e.target.value.length >= 8 && (/[a-zA-Z]/.test(e.target.value))) {
-      //   //   setErrorMessage('')
-      //   // }
-      //   console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(e.target.value));
-      //   switch (true) {
-      //     case (e.target.value.length > 0 && e.target.value.length < 8): {
-      //       // setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
-      //       // if (/[a-zA-Z]/.test(e.target.value) && !(/[0-9]/.test(e.target.value) || (/[#?!@$%^&*-]/.test(e.target.value))))
-      //       console.log('test switch');
-      //       if (!/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(e.target.value)) {
-      //         console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(e.target.value));
-
-      //         setErrorMessage('1At least 1 letter, a number or symbol, at least 8 characters.');
-      //       }
-      //       break;
-      //     }
-      //     default:
-      //       setErrorMessage(e.target.value.length);
-      //   }
-      //   break;
-      // }
+        break;
+      case 'password':
+        if (e.target.value.length === 0) {
+          setErrorMessage('Please enter a password.');
+          // also for all other cases, when click outside the field -> errorMessage turns from black to red, because 'setUnfocused(true)'
+        }
+        break;
       default:
         setErrorMessage('');
     }

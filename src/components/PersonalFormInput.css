@@ -75,5 +75,6 @@ input:invalid[data-unfocused='true']~.personal-form-input__error-messages {
 
 input:invalid[data-unfocused='false']~.personal-form-input__error-messages {
   display: block;
+  margin-bottom: -15px;
   color: #333;
 }
