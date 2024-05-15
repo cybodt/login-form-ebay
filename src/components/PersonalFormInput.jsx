@@ -4,6 +4,7 @@ import './PersonalFormInput.css';
 function PersonalFormInput(props) {
   const [errorMessage, setErrorMessage] = useState('');
   const [unfocused, setUnfocused] = useState(false);
+  const [triggerOnFocus, setTriggerOnFocus] = useState(false);
   const {
     value,
     onChange,
@@ -21,8 +22,17 @@ function PersonalFormInput(props) {
     containerClassName
   } = extraProps;
 
+  const handleOnFocus = (e) => {
+    setUnfocused(false);
+    setTriggerOnFocus(true);
+    if (e.target.value.length === 0) {
+      setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
+    }
+  };
+
   useEffect(() => {
-    if (name === 'password') {
+    // prevent useEffect for initial render when triggerOnFocus is false
+    if (triggerOnFocus && name === 'password') {
       switch (true) {
         case (value.length > 0 && value.length < 8): {
           if (/(?=.*?[a-zA-Z])/.test(value) && !/(?=.*?[0-9#?!@$%^&*\\-])/.test(value)) {
@@ -37,26 +47,16 @@ function PersonalFormInput(props) {
           else if (!/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value)) {
             setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
           }
-          // else {
-          //   setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
-          // }
           break;
         }
-        // case (value.length === 0):
-        //   setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
-        //   break;
+        case (value.length === 0):
+          setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
+          break;
         default:
           setErrorMessage('');
       }
     }
-  }, [onChange]);
-
-  const handleOnFocus = (e) => {
-    setUnfocused(false);
-    if (e.target.value.length === 0) {
-      setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
-    }
-  };
+  }, [triggerOnFocus, value]);
 
   const handleOnBlur = (e) => {
     setUnfocused(true);
