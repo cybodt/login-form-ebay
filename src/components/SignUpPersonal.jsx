@@ -54,7 +54,7 @@ function SignUpPersonal() {
       maxlength: 64,
       label: 'Password',
       // Minimum eight characters with at least one letter and one number or special character
-      pattern: '^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$',
+      pattern: '^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-])(?!.*?[^a-zA-Z0-9#?!@$%^&*\\-]).{8,}$',
       required: true,
       containerClassName: 'sign-up-personal__password'
     }

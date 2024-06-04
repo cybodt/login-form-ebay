@@ -28,13 +28,8 @@ function PersonalFormInput(props) {
     if (e.target.value.length === 0) {
       setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
     }
-    // else if (e.target.value.length >= 8 && /(?=.*?[^a-zA-Z])(?=.*?[^0-9#?!@$%^&*\\-])/.test(value)) {
-    //   setUnfocused(true);
-    //   setErrorMessage('Please remove the symbol you entered and try a different one.');
-    // }
-    else if (value.length >= 8 && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value)) {
+    else if (value.length >= 8 && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value) && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)) {
       setUnfocused(true);
-      console.log('test strange sybols');
       setErrorMessage('Please remove the symbol you entered and try a different one.');
     }
   };
@@ -45,6 +40,8 @@ function PersonalFormInput(props) {
       setUnfocused(false);
       switch (true) {
         case (value.length > 0 && value.length < 8): {
+          console.log(/(?!.*?[a-zA-Z])(?!.*?[0-9#?!@$%^&*\\-])/.test(value));
+          console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-])(?!.*?[^a-zA-Z0-9#?!@$%^&*\\-]).{8,}$/.test(value));
           if (/(?=.*?[a-zA-Z])/.test(value) && !/(?=.*?[0-9#?!@$%^&*\\-])/.test(value)) {
             setErrorMessage('A number or symbol, at least 8 characters.');
           }
@@ -62,33 +59,31 @@ function PersonalFormInput(props) {
         case (value.length === 0):
           setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
           break;
-        case (value.length >= 8 && /(?=.*?[^a-zA-Z])(?=.*?[^0-9#?!@$%^&*\\-])/.test(value) && /(?=.*?[a-zA-Z])/.test(value)):
-          console.log(/(?=.*?[a-zA-Z])/.test(value));
-          console.log(/(?=.*?[^a-zA-Z])/.test(value));
-          setErrorMessage('At least 1 letter, a number or symbol.');
-          break;
-        case (value.length >= 8 && /(?=.*?[a-zA-Z])/.test(value)):
-          console.log('test strange sybols');
-          setErrorMessage('A number or symbol.');
-
-          break;
-        // if (/(?=.*?[^a-zA-Z])(?=.*?[^0-9#?!@$%^&*\\-])/.test(value)) {
-        //   setErrorMessage('At least 1 letter, a number or symbol.');
-        // }
-        // else if (/(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[^a-zA-Z])(?=.*?[^0-9#?!@$%^&*\\-])/.test(value)) {
-        //   setErrorMessage('A number or symbol.');
-        // }
-        // else if (/(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[^a-zA-Z])(?=.*?[^0-9#?!@$%^&*\\-])/.test(value)) {
-        //   // setUnfocused(true);
-        //   setErrorMessage('Please remove the symbol you entered and try a different one.');
-        // }
-        case (value.length >= 8 && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value)):
-          console.log('test strange sybols');
+        case (value.length >= 8 && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value) && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)):
+          // case (value.length >= 8 && !/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value) && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)):
+          console.log(/^(?!.*?[^`~\\|\\/])(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
+          console.log(/^(?!.*?[a-zA-Z])(?!.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
           setUnfocused(true);
           setErrorMessage('Please remove the symbol you entered and try a different one.');
           break;
+        case (value.length >= 8 && !/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value) && /(?=.*?[a-zA-Z])/.test(value)):
+          console.log(/^(?=.*?[^`])(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
+          console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
+          setErrorMessage('A number or symbol.');
+          break;
+        case (value.length >= 8 && !/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)):
+          console.log(/^(?=.*?[^`])(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
+          console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
+          setErrorMessage('At least 1 letter.');
+          break;
+        case (value.length >= 8 && !/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value)):
+          console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
+          setErrorMessage('At least 1 letter, a number or symbol.');
+          break;
         default:
+          console.log(/^(?=.*?[^`])(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
           setErrorMessage('');
+          console.log('default log');
       }
     }
   }, [value]);
