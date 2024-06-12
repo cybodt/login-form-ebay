@@ -34,14 +34,14 @@ function PersonalFormInput(props) {
     }
   };
 
+  // ^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-])(?!.*?[^a-zA-Z0-9#?!@$%^&*\\-]).{8,}$
+
   useEffect(() => {
     // prevent useEffect for initial render when triggerOnFocus is false
     if (triggerOnFocus && name === 'password') {
       setUnfocused(false);
       switch (true) {
         case (value.length > 0 && value.length < 8): {
-          console.log(/(?!.*?[a-zA-Z])(?!.*?[0-9#?!@$%^&*\\-])/.test(value));
-          console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-])(?!.*?[^a-zA-Z0-9#?!@$%^&*\\-]).{8,}$/.test(value));
           if (/(?=.*?[a-zA-Z])/.test(value) && !/(?=.*?[0-9#?!@$%^&*\\-])/.test(value)) {
             setErrorMessage('A number or symbol, at least 8 characters.');
           }
@@ -51,7 +51,7 @@ function PersonalFormInput(props) {
           else if (/(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)) {
             setErrorMessage('At least 8 characters.');
           }
-          else if (!/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value)) {
+          else if (/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-])(?!.*?[^a-zA-Z0-9#?!@$%^&*\\-]).{8,}$/.test(value)) {
             setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
           }
           break;
