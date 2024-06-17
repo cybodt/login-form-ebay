@@ -59,16 +59,11 @@ function PersonalFormInput(props) {
         case (value.length === 0):
           setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
           break;
-        case (value.length >= 8 && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value) && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)):
-          // case (value.length >= 8 && !/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value) && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)):
-          console.log(/^(?!.*?[^`~\\|\\/])(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
-          console.log(/^(?!.*?[a-zA-Z])(?!.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
+        case (value.length >= 8 && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value) && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value)):
           setUnfocused(true);
           setErrorMessage('Please remove the symbol you entered and try a different one.');
           break;
-        case (value.length >= 8 && !/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value) && /(?=.*?[a-zA-Z])/.test(value)):
-          console.log(/^(?=.*?[^`])(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
-          console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
+        case (value.length >= 8 && /(?=.*?[a-zA-Z])/.test(value) && !/(?=.*?[0-9#?!@$%^&*\\-])/.test(value)):
           setErrorMessage('A number or symbol.');
           break;
         case (value.length >= 8 && !/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)):
