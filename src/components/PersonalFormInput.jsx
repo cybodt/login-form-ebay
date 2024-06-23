@@ -22,15 +22,15 @@ function PersonalFormInput(props) {
     containerClassName
   } = extraProps;
 
-  const handleOnFocus = (e) => {
+  const handleOnFocus = () => {
     setUnfocused(false);
     setTriggerOnFocus(true);
-    if (e.target.value.length === 0) {
+    if (value.length === 0) {
       setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
     }
-    else if (value.length >= 8 && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value) && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)) {
+    else if (value.length >= 8 && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value) && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value)) {
       setUnfocused(true);
-      setErrorMessage('Please remove the symbol you entered and try a different one.');
+      // keeps in red the error message when field is focused: 'Please remove the symbol you entered and try a different one.'
     }
   };
 
@@ -127,7 +127,7 @@ function PersonalFormInput(props) {
         required={required}
         onChange={onChange}
         onBlur={handleOnBlur}
-        onFocus={e => name === 'password' && handleOnFocus(e)}
+        onFocus={() => name === 'password' && handleOnFocus()}
         data-unfocused={unfocused}
       />
       <span className='personal-form-input__error-messages'>
