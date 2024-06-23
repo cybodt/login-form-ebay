@@ -66,9 +66,7 @@ function PersonalFormInput(props) {
         case (value.length >= 8 && /(?=.*?[a-zA-Z])/.test(value) && !/(?=.*?[0-9#?!@$%^&*\\-])/.test(value)):
           setErrorMessage('A number or symbol.');
           break;
-        case (value.length >= 8 && !/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value)):
-          console.log(/^(?=.*?[^`])(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
-          console.log(/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value));
+        case (value.length >= 8 && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value) && !/(?=.*?[a-zA-Z])/.test(value)):
           setErrorMessage('At least 1 letter.');
           break;
         case (value.length >= 8 && !/^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-]).{8,}$/.test(value)):
