@@ -76,10 +76,9 @@ function PersonalFormInput(props) {
     }
   }, [value]);
 
-  const handleOnBlur = (e) => {
-    // Please remove the symbol you entered and try a different one.
+  const handleOnBlur = () => {
     setUnfocused(true);
-    switch (e.target.name) {
+    switch (name) {
       case 'firstname':
         setErrorMessage('Please enter your first name');
         break;
@@ -87,12 +86,12 @@ function PersonalFormInput(props) {
         setErrorMessage('Please enter your last name');
         break;
       case 'email': {
-        // convert regex string(pattern) to regex object(patternX)
+        // convert regex string (pattern) to regex object (patternX)
         const patternX = new RegExp(pattern);
-        if (e.target.value.length > 0 && e.target.value.length < 6) {
+        if (value.length > 0 && value.length < 6) {
           setErrorMessage('Email address should be at least 6 characters.');
         }
-        else if (e.target.value.length >= 6 && !(patternX.test(e.target.value))) {
+        else if (value.length >= 6 && !(patternX.test(value))) {
           setErrorMessage('Email address is invalid. Please enter a valid email address.');
         }
         else {
@@ -101,7 +100,7 @@ function PersonalFormInput(props) {
       }
         break;
       case 'password':
-        if (e.target.value.length === 0) {
+        if (value.length === 0) {
           setErrorMessage('Please enter a password.');
           // also for all other cases, when click outside the field -> errorMessage turns from black to red, because 'setUnfocused(true)'
         }
