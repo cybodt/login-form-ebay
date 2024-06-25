@@ -34,11 +34,9 @@ function PersonalFormInput(props) {
     }
   };
 
-  // ^(?=.*?[a-zA-Z])(?=.*?[0-9#?!@$%^&*\\-])(?!.*?[^a-zA-Z0-9#?!@$%^&*\\-]).{8,}$
-
   useEffect(() => {
     // prevent useEffect for initial render when triggerOnFocus is false
-    if (triggerOnFocus && name === 'password') {
+    if (triggerOnFocus) {
       setUnfocused(false);
       switch (true) {
         case (value.length > 0 && value.length < 8): {
