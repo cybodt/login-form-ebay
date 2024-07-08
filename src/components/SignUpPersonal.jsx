@@ -19,7 +19,7 @@ function SignUpPersonal() {
       name: 'firstname',
       maxlength: 63,
       label: 'First name',
-      pattern: '^[A-Za-z0-9]{3,16}$',
+      pattern: '^[a-zA-Z0-9]{3,}$',
       required: true,
       containerClassName: 'sign-up-personal__first-name'
     },
@@ -30,7 +30,7 @@ function SignUpPersonal() {
       name: 'lastname',
       maxlength: 63,
       label: 'Last name',
-      pattern: '^[A-Za-z0-9]{3,16}$',
+      pattern: '^[a-zA-Z0-9]{3,}$',
       required: true,
       containerClassName: 'sign-up-personal__last-name'
     },
@@ -41,7 +41,7 @@ function SignUpPersonal() {
       name: 'email',
       maxlength: 64,
       label: 'Email',
-      pattern: '^([A-Za-z0-9_\\-.+])+@([A-Za-z0-9_\\-.])+\\.([A-Za-z]{2,})$',
+      pattern: '^([a-zA-Z0-9_\\-.+])+@([a-zA-Z0-9_\\-.])+\\.([a-zA-Z]{2,})$',
       required: true,
       containerClassName: 'sign-up-personal__email'
     },
