@@ -3,6 +3,7 @@ import './PersonalFormInput.css';
 
 function PersonalFormInput(props) {
   const [errorMessage, setErrorMessage] = useState('');
+  const [focused, setFocused] = useState(false);
   const [unfocused, setUnfocused] = useState(false);
   const [triggerOnFocus, setTriggerOnFocus] = useState(false);
   const {
@@ -23,20 +24,23 @@ function PersonalFormInput(props) {
   } = extraProps;
 
   const handleOnFocus = () => {
-    setUnfocused(false);
     setTriggerOnFocus(true);
+    setFocused(true);
+    setUnfocused(false);
     if (value.length === 0) {
       setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
     }
     else if (value.length >= 8 && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value) && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value)) {
+      setFocused(false);
       setUnfocused(true);
-      // keeps in red the error message when field is focused: 'Please remove the symbol you entered and try a different one.'
+      // keeps in red the error message when the field is focused: 'Please remove the symbol you entered and try a different one.'
     }
   };
 
   useEffect(() => {
     // prevent useEffect for initial render when triggerOnFocus is false
     if (triggerOnFocus) {
+      setFocused(true);
       setUnfocused(false);
       switch (true) {
         case (value.length > 0 && value.length < 8): {
@@ -58,6 +62,7 @@ function PersonalFormInput(props) {
           setErrorMessage('At least 1 letter, a number or symbol, at least 8 characters.');
           break;
         case (value.length >= 8 && /(?=.*?[a-zA-Z])/.test(value) && /(?=.*?[0-9#?!@$%^&*\\-])/.test(value) && /(?=.*?[^a-zA-Z0-9#?!@$%^&*\\-])/.test(value)):
+          setFocused(false);
           setUnfocused(true);
           setErrorMessage('Please remove the symbol you entered and try a different one.');
           break;
@@ -77,6 +82,7 @@ function PersonalFormInput(props) {
   }, [value]);
 
   const handleOnBlur = () => {
+    setFocused(false);
     setUnfocused(true);
     switch (name) {
       case 'firstname':
@@ -102,7 +108,7 @@ function PersonalFormInput(props) {
       case 'password':
         if (value.length === 0) {
           setErrorMessage('Please enter a password.');
-          // also for all other cases, when click outside the field -> errorMessage turns from black to red, because 'setUnfocused(true)'
+          // also for all other cases, when click outside the field -> errorMessage turns from black to red, because 'setFocused(false)' and 'setUnfocused(true)'
         }
         break;
       default:
@@ -125,6 +131,7 @@ function PersonalFormInput(props) {
         onChange={onChange}
         onBlur={handleOnBlur}
         onFocus={() => name === 'password' && handleOnFocus()}
+        data-focused={focused}
         data-unfocused={unfocused}
       />
       <span className='personal-form-input__error-messages'>
