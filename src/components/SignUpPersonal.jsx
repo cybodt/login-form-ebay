@@ -72,7 +72,6 @@ function SignUpPersonal() {
   };
 
   return (
-    // <div className='sign-up-personal__container'>
     <form
       onSubmit={handleSubmit}
       className='sign-up-personal__form'
@@ -87,13 +86,13 @@ function SignUpPersonal() {
       ))}
       <div className='sign-up-personal__agreement-and-notice'>
         <p>
-          By <b>Creating an account</b>, you agree to our <Link to='/useragreement'>User Agreement</Link> and acknowledge reading our <Link to='/userprivacynotice'>User Privacy Notice </Link>.
+          By selecting <b>Create personal account</b>, you agree to our <Link className='sign-up-personal__agreement-and-notice-links' to='/user-agreement'>User Agreement</Link> and acknowledge reading our <Link className='sign-up-personal__agreement-and-notice-links' to='/user-privacy-notice'>User Privacy Notice </Link>.
         </p>
       </div>
       <button
         type='submit'
-        className='sign-up-personal__create-account-button'
-      >Create account
+        className='sign-up-personal__create-personal-account-button'
+      >Create personal account
       </button>
     </form>
   );
