@@ -72,29 +72,37 @@ function SignUpPersonal() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className='sign-up-personal__form'
-    >
-      {inputs.map(input => (
-        <PersonalFormInput
-          key={input.id}
-          value={values[input.name]}
-          onChange={handleChange}
-          extraProps={input}
-        />
-      ))}
-      <div className='sign-up-personal__agreement-and-notice'>
-        <p>
-          By selecting <b>Create personal account</b>, you agree to our <Link className='sign-up-personal__agreement-and-notice-links' to='/user-agreement'>User Agreement</Link> and acknowledge reading our <Link className='sign-up-personal__agreement-and-notice-links' to='/user-privacy-notice'>User Privacy Notice </Link>.
-        </p>
+    <div className='sign-up-personal__container'>
+      <form
+        onSubmit={handleSubmit}
+        className='sign-up-personal__form'
+      >
+        {inputs.map(input => (
+          <PersonalFormInput
+            key={input.id}
+            value={values[input.name]}
+            onChange={handleChange}
+            extraProps={input}
+          />
+        ))}
+        <div className='sign-up-personal__agreement-and-notice'>
+          <p>
+            By selecting <b>Create personal account</b>, you agree to our <Link className='sign-up-personal__agreement-and-notice-links' to='/user-agreement'>User Agreement</Link> and acknowledge reading our <Link className='sign-up-personal__agreement-and-notice-links' to='/user-privacy-notice'>User Privacy Notice </Link>.
+          </p>
+        </div>
+        <button
+          type='submit'
+          className='sign-up-personal__create-personal-account-button'
+        >Create personal account
+        </button>
+      </form>
+      <div className='sign-up-personal__separator-container'>
+        <div className='sign-up-personal__horizontal-line' />
+        <div className='sign-up-personal__horizontal-text'>
+          or continue with
+        </div>
       </div>
-      <button
-        type='submit'
-        className='sign-up-personal__create-personal-account-button'
-      >Create personal account
-      </button>
-    </form>
+    </div>
   );
 }
 
