@@ -75,103 +75,38 @@
   background-color: #fff;
 }
 
-
-
-
-.sign-up-personal__vertical-delimiter-container {
-  width: 174px;
-  height: 400px;
-  position: relative;
-}
-
-.sign-up-personal__vertical-line {
-  width: 1px;
-  height: 100%;
-  margin: auto;
-  background-color: #ccc;
-}
-
-/* .sign-up-personal__horizontal-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: .75rem;
-  line-height: 16px;
-  font-family: 'Market-Sans', 'Market-Sans2', Arial, Helvetica, sans-serif;
-  background-color: #fff;
-} */
-
 .sign-up-personal__social-buttons {
-  width: 300px;
-  height: 192px;
-  margin: auto 0;
+  width: 100%;
+  height: 64px;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
 }
+
 
 .sign-up-personal__social-buttons>button {
   position: relative;
-  width: 100%;
+  width: 126px;
   height: 48px;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 8px; 
   justify-content: center;
+  align-content: center;
   box-sizing: border-box;
-  margin: 8px 0;
+  margin: 7px 0;
+  border: 1px solid #8f8f8f;
   border-radius: 48px;
+  color: #000;
+  background-color: #fff;
   font-size: 1rem;
   font-weight: bold;
   font-family: 'Market-Sans', 'Market-Sans2', Arial, Helvetica, sans-serif;
 }
 
 .sign-up-personal__social-buttons>button>img {
-  position: absolute;
-  left: 20px;
+  width: 16px;
 }
 
-.sign-up-personal__google-btn {
-  padding-left: 43px;
-  border: 1px solid #000;
-  color: #000;
-  background-color: #fff;
-}
-
-.sign-up-personal__google-btn:hover {
+.sign-up-personal__social-buttons>button:hover {
   background-color: #f5f5f5;
-}
-
-.sign-up-personal__google-btn>img {
-  width: 23px;
-}
-
-.sign-up-personal__fb-btn {
-  padding-left: 45px;
-  border: none;
-  color: #fff;
-  background-color: #4267b2;
-}
-
-.sign-up-personal__fb-btn:hover {
-  background-blend-mode: multiply;
-  filter: brightness(96%);
-}
-
-.sign-up-personal__fb-btn>img {
-  width: 25px;
-}
-
-.sign-up-personal__apple-btn {
-  padding-left: 41px;
-  border: 1px solid #000;
-  color: #000;
-  background-color: #fff;
-}
-
-.sign-up-personal__apple-btn:hover {
-  background-color: #f5f5f5;
-}
-
-.sign-up-personal__apple-btn>img {
-  width: 21px;
 }
