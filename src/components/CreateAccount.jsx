@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './CreateAccount.css';
 import SignUpPersonal from './SignUpPersonal';
+import SignUpBusiness from './SignUpBusiness';
 
 function CreateAccount() {
   const styleSelect = ({
@@ -13,17 +14,30 @@ function CreateAccount() {
     typeBusiness: styleSelect.inactive
   });
 
+  const [activeType, setActiveType] = useState({
+    activePersonal: true,
+    activeBusiness: false
+  });
+
   const handleChoose = (e) => {
     if (e.target.value === 'personal') {
       setChooseType({
         typePersonal: styleSelect.active,
         typeBusiness: styleSelect.inactive
       });
+      setActiveType({
+        activePersonal: true,
+        activeBusiness: false
+      });
     }
     else {
       setChooseType({
         typePersonal: styleSelect.inactive,
         typeBusiness: styleSelect.active
+      });
+      setActiveType({
+        activePersonal: false,
+        activeBusiness: true
       });
     }
   };
@@ -58,7 +72,8 @@ function CreateAccount() {
             Business
           </button>
         </div>
-        <SignUpPersonal />
+        {activeType.activePersonal && <SignUpPersonal />}
+        {activeType.activeBusiness && <SignUpBusiness />}
       </div>
     </div>
   );

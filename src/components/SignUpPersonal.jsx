@@ -112,7 +112,7 @@ function SignUpPersonal() {
         </button>
         <button type='button'>
           <img
-            src='/public/images/logos-on-buttons/facebook-logo-2023.png'
+            src='/images/logos-on-buttons/facebook-logo-2023.png'
             alt='Facebook logo'
           />
           <span>Facebook</span>
