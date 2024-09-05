@@ -1,11 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SignUpBusiness.css';
 
 function SignUpBusiness() {
-  return (
-    <div>
+  const [values, setValues] = useState({
+    businessName: '',
+    businessEmail: '',
+    businessPassword: '',
+    businessLocation: ''
+  });
+
+  const inputs = [
+    {
+      id: 'business-name',
+      className: 'sign-up-business__input-business-name',
+      type: 'text',
+      name: 'businessName',
       
-    </div>
+    }
+  ]
+
+  return (
+    <form className='sign-up-business__form'>
+      
+    </form>
   );
 }
 

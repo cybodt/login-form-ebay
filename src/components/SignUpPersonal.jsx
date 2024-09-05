@@ -5,10 +5,10 @@ import PersonalFormInput from './PersonalFormInput';
 
 function SignUpPersonal() {
   const [values, setValues] = useState({
-    firstname: '',
-    lastname: '',
-    email: '',
-    password: ''
+    'first-name': '',
+    'last-name': '',
+    'email': '',
+    'password': ''
   });
 
   const inputs = [
@@ -16,7 +16,7 @@ function SignUpPersonal() {
       id: 'first-name',
       className: 'sign-up-personal__input-first-name',
       type: 'text',
-      name: 'firstname',
+      name: 'first-name',
       maxlength: 63,
       label: 'First name',
       pattern: '^[a-zA-Z0-9]{3,}$',
@@ -27,7 +27,7 @@ function SignUpPersonal() {
       id: 'last-name',
       className: 'sign-up-personal__input-last-name',
       type: 'text',
-      name: 'lastname',
+      name: 'last-name',
       maxlength: 63,
       label: 'Last name',
       pattern: '^[a-zA-Z0-9]{3,}$',

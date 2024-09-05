@@ -85,10 +85,10 @@ function PersonalFormInput(props) {
     setFocused(false);
     setUnfocused(true);
     switch (name) {
-      case 'firstname':
+      case 'first-name':
         setErrorMessage('Please enter your first name');
         break;
-      case 'lastname':
+      case 'last-name':
         setErrorMessage('Please enter your last name');
         break;
       case 'email': {
