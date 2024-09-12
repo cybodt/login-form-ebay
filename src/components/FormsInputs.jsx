@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './PersonalFormInput.css';
+import './FormsInputs.css';
 
-function PersonalFormInput(props) {
+function FormsInputs(props) {
   const [errorMessage, setErrorMessage] = useState('');
   const [focused, setFocused] = useState(false);
   const [unfocused, setUnfocused] = useState(false);
@@ -134,11 +134,11 @@ function PersonalFormInput(props) {
         data-focused={focused}
         data-unfocused={unfocused}
       />
-      <span className='personal-form-input__error-messages'>
+      <span className='forms-inputs__error-messages'>
         {errorMessage}
       </span>
     </div>
   );
 }
 
-export default PersonalFormInput;
+export default FormsInputs;

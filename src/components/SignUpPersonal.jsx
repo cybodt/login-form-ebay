@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SignUpPersonal.css';
 import { Link } from 'react-router-dom';
-import PersonalFormInput from './PersonalFormInput';
+import FormsInputs from './FormsInputs';
 
 function SignUpPersonal() {
   const [values, setValues] = useState({
@@ -78,7 +78,7 @@ function SignUpPersonal() {
         className='sign-up-personal__form'
       >
         {inputs.map(input => (
-          <PersonalFormInput
+          <FormsInputs
             key={input.id}
             value={values[input.name]}
             onChange={handleChange}

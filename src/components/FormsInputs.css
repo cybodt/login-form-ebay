@@ -59,7 +59,7 @@
   font-size: .875rem;
 }
 
-.personal-form-input__error-messages {
+.forms-inputs__error-messages {
   display: none;
   margin-top: 5px;
   line-height: 14px;
@@ -68,12 +68,12 @@
   color: #c9002c;
 }
 
-input:invalid[data-focused='true']~.personal-form-input__error-messages {
+input:invalid[data-focused='true']~.forms-inputs__error-messages {
   display: block;
   margin-bottom: -16px;
   color: #333;
 }
 
-input:invalid[data-unfocused='true']~.personal-form-input__error-messages {
+input:invalid[data-unfocused='true']~.forms-inputs__error-messages {
   display: block;
 }
