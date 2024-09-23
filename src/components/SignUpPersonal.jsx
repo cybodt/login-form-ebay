@@ -13,9 +13,9 @@ function SignUpPersonal() {
 
   const inputs = [
     {
+      type: 'text',
       id: 'first-name',
       className: 'sign-up-personal__input-first-name',
-      type: 'text',
       name: 'first-name',
       maxlength: 63,
       label: 'First name',
@@ -24,9 +24,9 @@ function SignUpPersonal() {
       containerClassName: 'sign-up-personal__first-name'
     },
     {
+      type: 'text',
       id: 'last-name',
       className: 'sign-up-personal__input-last-name',
-      type: 'text',
       name: 'last-name',
       maxlength: 63,
       label: 'Last name',
@@ -35,9 +35,9 @@ function SignUpPersonal() {
       containerClassName: 'sign-up-personal__last-name'
     },
     {
+      type: 'text',
       id: 'email',
       className: 'sign-up-personal__input-email',
-      type: 'text',
       name: 'email',
       maxlength: 64,
       label: 'Email',
@@ -46,10 +46,10 @@ function SignUpPersonal() {
       containerClassName: 'sign-up-personal__email'
     },
     {
-      id: 'password',
-      className: 'sign-up-personal__input-password',
       // type: 'password',
       type: 'text',
+      id: 'password',
+      className: 'sign-up-personal__input-password',
       name: 'password',
       maxlength: 64,
       label: 'Password',

@@ -120,9 +120,9 @@ function FormsInputs(props) {
     <div className={containerClassName}>
       <label htmlFor={id}>{label}</label>
       <input
+        type={type}
         id={id}
         className={className}
-        type={type}
         name={name}
         value={value}
         maxLength={maxlength}
