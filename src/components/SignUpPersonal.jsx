@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SignUpPersonal.css';
+import './SignUpPersonalAndBusiness.css';
 import { Link } from 'react-router-dom';
 import FormsInputs from './FormsInputs';
 

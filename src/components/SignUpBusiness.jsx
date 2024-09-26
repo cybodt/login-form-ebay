@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './SignUpBusiness.css';
+import './SignUpPersonalAndBusiness.css';
 import FormsInputs from './FormsInputs';
 
 function SignUpBusiness() {
@@ -89,6 +89,16 @@ function SignUpBusiness() {
           I’m only interested in buying on eBay for now
         </label>
       </div>
+      <div className='sign-up-business__agreement-and-notice'>
+        <p>
+          By selecting Create business account, you agree to our User Agreement and acknowledge reading our User Privacy Notice.
+        </p>
+      </div>
+      <button
+        type='submit'
+        className='sign-up-business__create-business-account-button'
+      >Create business account
+      </button>
     </form>
   );
 }
