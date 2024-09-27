@@ -9,7 +9,7 @@
   justify-content: space-between;
 }
 
-.sign-up-personal__agreement-and-notice {
+.sign-up__agreement-and-notice {
   grid-column: 1 / span 2;
   margin: 8px 0 -8px;
   line-height: 1.5;
@@ -18,11 +18,11 @@
   color: #707070;
 }
 
-.sign-up-personal__agreement-and-notice>p {
+.sign-up__agreement-and-notice>p {
   margin: 0;
 }
 
-.sign-up-personal__agreement-and-notice-links {
+.sign-up__agreement-and-notice-links {
   color: #707070;
 }
 

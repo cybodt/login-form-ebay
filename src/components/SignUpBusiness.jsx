@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './SignUpPersonalAndBusiness.css';
+import { Link } from 'react-router-dom';
 import FormsInputs from './FormsInputs';
 
 function SignUpBusiness() {
@@ -91,7 +92,7 @@ function SignUpBusiness() {
       </div>
       <div className='sign-up-business__agreement-and-notice'>
         <p>
-          By selecting Create business account, you agree to our User Agreement and acknowledge reading our User Privacy Notice.
+          By selecting <b>Create business account</b>, you agree to our <Link className='sign-up__agreement-and-notice-links' to='/user-agreement'>User Agreement</Link> and acknowledge reading our <Link className='sign-up__agreement-and-notice-links' to='/user-privacy-notice'>User Privacy Notice</Link>.
         </p>
       </div>
       <button
