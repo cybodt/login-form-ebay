@@ -90,7 +90,7 @@ function SignUpBusiness() {
           I’m only interested in buying on eBay for now
         </label>
       </div>
-      <div className='sign-up-business__agreement-and-notice'>
+      <div className='sign-up__agreement-and-notice'>
         <p>
           By selecting <b>Create business account</b>, you agree to our <Link className='sign-up__agreement-and-notice-links' to='/user-agreement'>User Agreement</Link> and acknowledge reading our <Link className='sign-up__agreement-and-notice-links' to='/user-privacy-notice'>User Privacy Notice</Link>.
         </p>
