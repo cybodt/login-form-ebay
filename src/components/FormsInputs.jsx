@@ -84,14 +84,17 @@ function FormsInputs(props) {
   const handleOnBlur = () => {
     setFocused(false);
     setUnfocused(true);
-    switch (name) {
-      case 'first-name':
+    switch (true) {
+      case (name === 'first-name'):
         setErrorMessage('Please enter your first name');
         break;
-      case 'last-name':
+      case (name === 'last-name'):
         setErrorMessage('Please enter your last name');
         break;
-      case 'email': {
+      case (name === 'business-name'):
+        setErrorMessage('Please enter your business name.');
+        break;
+      case (name === 'email' || name === 'business-email'): {
         // convert regex string (pattern) to regex object (patternX)
         const patternX = new RegExp(pattern);
         if (value.length > 0 && value.length < 6) {
@@ -105,7 +108,7 @@ function FormsInputs(props) {
         }
       }
         break;
-      case 'password':
+      case (name === 'password' || name === 'business-password'):
         if (value.length === 0) {
           setErrorMessage('Please enter a password.');
           // also for all other cases, when click outside the field -> errorMessage turns from black to red, because 'setFocused(false)' and 'setUnfocused(true)'
@@ -130,7 +133,9 @@ function FormsInputs(props) {
         required={required}
         onChange={onChange}
         onBlur={handleOnBlur}
-        onFocus={() => name === 'password' && handleOnFocus()}
+        onFocus={() => (
+          name === 'password' || name === 'business-password'
+        ) && handleOnFocus()}
         data-focused={focused}
         data-unfocused={unfocused}
       />

@@ -16,6 +16,8 @@
 
 .sign-up-business__description {
   grid-column: 1 / span 2;
+  font-family: 'Market-Sans', 'Market-Sans2', Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
   /* to add more properties */
 }
 
