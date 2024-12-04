@@ -82,6 +82,7 @@ function SignUpBusiness() {
           type='checkbox'
           id='biz-only-to-buy'
           className='sign-up-business__checkbox-input'
+          name='biz-only-to-buy'
         />
         <label
           htmlFor='biz-only-to-buy'
