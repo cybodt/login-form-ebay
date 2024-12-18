@@ -1,0 +1,19 @@
+.select-country-btn {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+  border: 1px solid #8f8f8f;
+  border-radius: 7px;
+  outline: none;
+  background-color: #f7f7f7;
+  color: black;
+  font-size: .875rem;
+  cursor: default;
+}
+
+.select-country-btn__toggle-icon {
+  padding-top: 4px;
+}

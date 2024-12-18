@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './SignUpPersonalAndBusiness.css';
 import { Link } from 'react-router-dom';
 import FormsInputs from './FormsInputs';
+import SelectCountry from './SelectCountry/SelectCountry';
 
 function SignUpBusiness() {
   const [values, setValues] = useState({
@@ -300,7 +301,10 @@ function SignUpBusiness() {
           extraProps={input}
         />
       ))}
-      {/* here to place select country component */}
+      <SelectCountry
+        buttonText='Where is your business registered?'
+        content={<p>Hello world!</p>}
+      />
       <div className='sign-up-business__checkbox-wrapper'>
         <input
           type='checkbox'

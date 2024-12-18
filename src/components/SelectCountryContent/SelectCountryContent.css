@@ -1,0 +1,13 @@
+.select-country-content {
+  position: absolute;
+  min-width: 100%;
+  max-height: 40vh;
+  padding-left: 15px;
+  box-sizing: border-box;
+  border: 1px solid #8f8f8f;
+  border-radius: 7px;
+  outline: none;
+  background-color: #f7f7f7;
+  color: black;
+  font-size: 1rem;
+}
