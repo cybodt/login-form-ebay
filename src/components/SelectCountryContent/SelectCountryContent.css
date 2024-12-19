@@ -7,7 +7,13 @@
   border: 1px solid #8f8f8f;
   border-radius: 7px;
   outline: none;
+  overflow-y: scroll;
   background-color: #f7f7f7;
   color: black;
   font-size: 1rem;
+  opacity: 0;
+}
+
+.select-country-content__open {
+  opacity: 1;
 }
