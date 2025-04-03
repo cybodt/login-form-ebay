@@ -1,3 +1,11 @@
 .select-country {
   position: relative;
 }
+
+.select-country-button__input {
+  width: 100%;
+  border: none;
+  outline: none;
+  pointer-events: none;
+  background-color:#f7f7f7; 
+}
