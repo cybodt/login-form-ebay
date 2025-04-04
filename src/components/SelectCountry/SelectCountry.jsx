@@ -9,12 +9,12 @@ function SelectCountry({ buttonText, content }) {
   const [open, setOpen] = useState(false);
   const [countryName, setCountryName] = useState('');
 
-  const bringCountryName = (data) => {
-    setCountryName(data);
-  };
-
   const toogleDropdown = () => {
     setOpen(!open);
+  };
+
+  const bringCountryName = (data) => {
+    setCountryName(data);
   };
 
   const countryOptions = [
@@ -262,6 +262,7 @@ function SelectCountry({ buttonText, content }) {
               <SelectCountryItem
                 key={item.code}
                 sendToParent={bringCountryName}
+                toggle={toogleDropdown}
               >
                 {item.text}
               </SelectCountryItem>

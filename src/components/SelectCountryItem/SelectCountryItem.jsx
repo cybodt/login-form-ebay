@@ -1,9 +1,10 @@
 import React from 'react';
 import './SelectCountryItem.css';
 
-function SelectCountryItem({ children, sendToParent }) {
+function SelectCountryItem({ children, sendToParent, toggle }) {
   const handleClick = () => {
     sendToParent(children);
+    toggle();
   };
 
   return (
