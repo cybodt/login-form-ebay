@@ -4,8 +4,28 @@
 
 .select-country-button__input {
   width: 100%;
+  padding: 0;
   border: none;
   outline: none;
   pointer-events: none;
-  background-color:#f7f7f7; 
+  font-size: 0.875rem;
+  color: #191919;
+  background-color:#f7f7f7;
+}
+
+.select-country-button__label--default {
+  position: absolute;
+  left: 15px;
+  align-self: center;
+  pointer-events: none;
+  color: #707070;
+}
+
+.select-country-button__label--clicked {
+  position: absolute;
+  top: 4px;
+  left: 15px;
+  pointer-events: none;
+  font-size: 0.875em;
+  color: #707070;
 }

@@ -5,7 +5,7 @@ import '../FormsInputs.css';
 import './SelectCountry.css';
 import SelectCountryItem from '../SelectCountryItem/SelectCountryItem';
 
-function SelectCountry({ buttonText, content }) {
+function SelectCountry() {
   const [open, setOpen] = useState(false);
   const [countryName, setCountryName] = useState('');
 
@@ -18,7 +18,7 @@ function SelectCountry({ buttonText, content }) {
   };
 
   const countryOptions = [
-    '',
+    { text: '' },
     { code: '1', token: 'US', text: 'United States', translatedtext: 'United States' },
     { code: '2', token: 'CA', text: 'Canada', translatedtext: 'Canada' },
     { code: '3', token: 'GB', text: 'United Kingdom', translatedtext: 'United Kingdom' },
@@ -247,11 +247,18 @@ function SelectCountry({ buttonText, content }) {
         toggle={toogleDropdown}
       >
         <input
+          id='select-country-button__input-id'
           className='select-country-button__input'
           type='text'
           name='country-name'
           value={countryName}
         />
+        <label
+          htmlFor='select-country-button__input-id'
+          className={`${countryName ? 'select-country-button__label--clicked' : 'select-country-button__label--default'}`}
+        >
+          Where is your business registered?
+        </label>
       </SelectCountryButton>
       <SelectCountryContent
         open={open}

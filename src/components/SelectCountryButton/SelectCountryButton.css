@@ -3,7 +3,7 @@
   height: 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   padding: 0 15px;
   box-sizing: border-box;
   border: 1px solid #8f8f8f;
@@ -16,5 +16,6 @@
 }
 
 .select-country-btn__toggle-icon {
+  align-self: center;
   padding-top: 4px;
 }

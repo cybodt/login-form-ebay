@@ -77,10 +77,7 @@ function SignUpBusiness() {
           extraProps={input}
         />
       ))}
-      <SelectCountry
-        buttonText='Where is your business registered?'
-        content={<p>Hello world!</p>}
-      />
+      <SelectCountry />
       <div className='sign-up-business__checkbox-wrapper'>
         <input
           type='checkbox'
